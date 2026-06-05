@@ -1,0 +1,2069 @@
+[
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "chatter",
+        "importPath": "chat.chat",
+        "description": "chat.chat",
+        "isExtraImport": true,
+        "detail": "chat.chat",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "lru_cache",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "StateGraph",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "END",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "StateGraph",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "END",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypedDict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypedDict",
+        "importPath": "typing_extensions",
+        "description": "typing_extensions",
+        "isExtraImport": true,
+        "detail": "typing_extensions",
+        "documentation": {}
+    },
+    {
+        "label": "TypedDict",
+        "importPath": "typing_extensions",
+        "description": "typing_extensions",
+        "isExtraImport": true,
+        "detail": "typing_extensions",
+        "documentation": {}
+    },
+    {
+        "label": "getSimilarProducts",
+        "importPath": "embeddings.similarity",
+        "description": "embeddings.similarity",
+        "isExtraImport": true,
+        "detail": "embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "chromadb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "chromadb",
+        "description": "chromadb",
+        "detail": "chromadb",
+        "documentation": {}
+    },
+    {
+        "label": "ollama",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ollama",
+        "description": "ollama",
+        "detail": "ollama",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "ssl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ssl",
+        "description": "ssl",
+        "detail": "ssl",
+        "documentation": {}
+    },
+    {
+        "label": "PoolManager",
+        "importPath": "urllib3.poolmanager",
+        "description": "urllib3.poolmanager",
+        "isExtraImport": true,
+        "detail": "urllib3.poolmanager",
+        "documentation": {}
+    },
+    {
+        "label": "PoolManager",
+        "importPath": "urllib3.poolmanager",
+        "description": "urllib3.poolmanager",
+        "isExtraImport": true,
+        "detail": "urllib3.poolmanager",
+        "documentation": {}
+    },
+    {
+        "label": "PoolManager",
+        "importPath": "urllib3.poolmanager",
+        "description": "urllib3.poolmanager",
+        "isExtraImport": true,
+        "detail": "urllib3.poolmanager",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPAdapter",
+        "importPath": "requests.adapters",
+        "description": "requests.adapters",
+        "isExtraImport": true,
+        "detail": "requests.adapters",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPAdapter",
+        "importPath": "requests.adapters",
+        "description": "requests.adapters",
+        "isExtraImport": true,
+        "detail": "requests.adapters",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPAdapter",
+        "importPath": "requests.adapters",
+        "description": "requests.adapters",
+        "isExtraImport": true,
+        "detail": "requests.adapters",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "sync_playwright",
+        "importPath": "playwright.sync_api",
+        "description": "playwright.sync_api",
+        "isExtraImport": true,
+        "detail": "playwright.sync_api",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "plotly.graph_objects",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "plotly.graph_objects",
+        "description": "plotly.graph_objects",
+        "detail": "plotly.graph_objects",
+        "documentation": {}
+    },
+    {
+        "label": "networkx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "networkx",
+        "description": "networkx",
+        "detail": "networkx",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "atexit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "atexit",
+        "description": "atexit",
+        "detail": "atexit",
+        "documentation": {}
+    },
+    {
+        "label": "close_connection",
+        "importPath": "database.dataManager",
+        "description": "database.dataManager",
+        "isExtraImport": true,
+        "detail": "database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "close_connection",
+        "importPath": "database.dataManager",
+        "description": "database.dataManager",
+        "isExtraImport": true,
+        "detail": "database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "ask_agent",
+        "importPath": "chat.agent",
+        "description": "chat.agent",
+        "isExtraImport": true,
+        "detail": "chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "test_ollama",
+        "importPath": "chat.agent",
+        "description": "chat.agent",
+        "isExtraImport": true,
+        "detail": "chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "ask_agent",
+        "importPath": "chat.agent",
+        "description": "chat.agent",
+        "isExtraImport": true,
+        "detail": "chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "test_ollama",
+        "importPath": "chat.agent",
+        "description": "chat.agent",
+        "isExtraImport": true,
+        "detail": "chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "ask_agent",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "def ask_agent(question: str, session_id: str = \"default\") -> dict:\n    \"\"\"\n    Main function with session context\n    \"\"\"\n    from .agent_nodes import get_conversation_context, update_conversation_context\n    # Get context for this session\n    context = get_conversation_context(session_id)\n    last_products = context.get(\"last_search_results\", [])\n    print(question)\n    # Create state with context",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "test_ollama",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "def test_ollama() -> tuple:\n    \"\"\"Test if Ollama is available\"\"\"\n    if OLLAMA_AVAILABLE and llm:\n        try:\n            response = llm.invoke(\"Say OK\")\n            return True, \"Ollama is working\"\n        except Exception as e:\n            return False, f\"Ollama error: {e}\"\n    return False, \"Ollama not available. Run 'ollama serve' and install langchain-ollama\"\ndef get_agent_graph_for_visualization():",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "get_agent_graph_for_visualization",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "def get_agent_graph_for_visualization():\n    \"\"\"Get agent graph for frontend visualization\"\"\"\n    return agent_graph\n# For direct testing\nif __name__ == \"__main__\":\n    print(\"Testing Agent\")\n    print(\"=\" * 50)\n    ok, msg = test_ollama()\n    print(f\"Ollama: {msg}\")\n    result = ask_agent(\"What gluten-free mixes do you have?\")",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ['NO_PROXY']",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "os.environ['NO_PROXY'] = 'localhost,127.0.0.1'\nos.environ['HTTP_PROXY'] = ''\nos.environ['HTTPS_PROXY'] = ''\n# Import from agent_graph\nfrom .agent_graph import get_agent_graph, set_llm\nfrom .utils import setup_environment, init_ollama, get_database_functions\nfrom .agent_state import create_initial_state\n# Setup\nsetup_environment()\nlogging.basicConfig(level=logging.INFO)",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ['HTTP_PROXY']",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "os.environ['HTTP_PROXY'] = ''\nos.environ['HTTPS_PROXY'] = ''\n# Import from agent_graph\nfrom .agent_graph import get_agent_graph, set_llm\nfrom .utils import setup_environment, init_ollama, get_database_functions\nfrom .agent_state import create_initial_state\n# Setup\nsetup_environment()\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ['HTTPS_PROXY']",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "os.environ['HTTPS_PROXY'] = ''\n# Import from agent_graph\nfrom .agent_graph import get_agent_graph, set_llm\nfrom .utils import setup_environment, init_ollama, get_database_functions\nfrom .agent_state import create_initial_state\n# Setup\nsetup_environment()\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n# Initialize Ollama",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Initialize Ollama\nllm, OLLAMA_AVAILABLE = init_ollama()\n# Set LLM for graph nodes\nset_llm(llm, OLLAMA_AVAILABLE)\n# Get graph\nagent_graph = get_agent_graph()\n# In chat/agent.py, update ask_agent function\ndef ask_agent(question: str, session_id: str = \"default\") -> dict:\n    \"\"\"",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "agent_graph",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent",
+        "description": "ai-chatbot.chat.agent",
+        "peekOfCode": "agent_graph = get_agent_graph()\n# In chat/agent.py, update ask_agent function\ndef ask_agent(question: str, session_id: str = \"default\") -> dict:\n    \"\"\"\n    Main function with session context\n    \"\"\"\n    from .agent_nodes import get_conversation_context, update_conversation_context\n    # Get context for this session\n    context = get_conversation_context(session_id)\n    last_products = context.get(\"last_search_results\", [])",
+        "detail": "ai-chatbot.chat.agent",
+        "documentation": {}
+    },
+    {
+        "label": "get_cache_key",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_cache",
+        "description": "ai-chatbot.chat.agent_cache",
+        "peekOfCode": "def get_cache_key(question: str) -> str:\n    \"\"\"Generate cache key from question\"\"\"\n    return hashlib.md5(question.lower().encode()).hexdigest()\ndef get_cached_response(question: str):\n    \"\"\"Get cached response if exists and not expired\"\"\"\n    key = get_cache_key(question)\n    if key in _response_cache:\n        entry = _response_cache[key]\n        if time.time() - entry['timestamp'] < _cache_ttl:\n            return entry['response']",
+        "detail": "ai-chatbot.chat.agent_cache",
+        "documentation": {}
+    },
+    {
+        "label": "get_cached_response",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_cache",
+        "description": "ai-chatbot.chat.agent_cache",
+        "peekOfCode": "def get_cached_response(question: str):\n    \"\"\"Get cached response if exists and not expired\"\"\"\n    key = get_cache_key(question)\n    if key in _response_cache:\n        entry = _response_cache[key]\n        if time.time() - entry['timestamp'] < _cache_ttl:\n            return entry['response']\n    return None\ndef cache_response(question: str, response: dict):\n    \"\"\"Cache a response\"\"\"",
+        "detail": "ai-chatbot.chat.agent_cache",
+        "documentation": {}
+    },
+    {
+        "label": "cache_response",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_cache",
+        "description": "ai-chatbot.chat.agent_cache",
+        "peekOfCode": "def cache_response(question: str, response: dict):\n    \"\"\"Cache a response\"\"\"\n    key = get_cache_key(question)\n    _response_cache[key] = {\n        'response': response,\n        'timestamp': time.time()\n    }\ndef clear_cache():\n    \"\"\"Clear all cached responses\"\"\"\n    global _response_cache",
+        "detail": "ai-chatbot.chat.agent_cache",
+        "documentation": {}
+    },
+    {
+        "label": "clear_cache",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_cache",
+        "description": "ai-chatbot.chat.agent_cache",
+        "peekOfCode": "def clear_cache():\n    \"\"\"Clear all cached responses\"\"\"\n    global _response_cache\n    _response_cache = {}",
+        "detail": "ai-chatbot.chat.agent_cache",
+        "documentation": {}
+    },
+    {
+        "label": "_response_cache",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_cache",
+        "description": "ai-chatbot.chat.agent_cache",
+        "peekOfCode": "_response_cache = {}\n_cache_ttl = 300  # 5 minutes\ndef get_cache_key(question: str) -> str:\n    \"\"\"Generate cache key from question\"\"\"\n    return hashlib.md5(question.lower().encode()).hexdigest()\ndef get_cached_response(question: str):\n    \"\"\"Get cached response if exists and not expired\"\"\"\n    key = get_cache_key(question)\n    if key in _response_cache:\n        entry = _response_cache[key]",
+        "detail": "ai-chatbot.chat.agent_cache",
+        "documentation": {}
+    },
+    {
+        "label": "_cache_ttl",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_cache",
+        "description": "ai-chatbot.chat.agent_cache",
+        "peekOfCode": "_cache_ttl = 300  # 5 minutes\ndef get_cache_key(question: str) -> str:\n    \"\"\"Generate cache key from question\"\"\"\n    return hashlib.md5(question.lower().encode()).hexdigest()\ndef get_cached_response(question: str):\n    \"\"\"Get cached response if exists and not expired\"\"\"\n    key = get_cache_key(question)\n    if key in _response_cache:\n        entry = _response_cache[key]\n        if time.time() - entry['timestamp'] < _cache_ttl:",
+        "detail": "ai-chatbot.chat.agent_cache",
+        "documentation": {}
+    },
+    {
+        "label": "set_llm",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)\n# ──────────────────────────────────────────────────────────────────────────────\n# SQL search node — handles price / rating / stock / dietary filter queries",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "generate_answer_with_llm",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)\n# ──────────────────────────────────────────────────────────────────────────────\n# SQL search node — handles price / rating / stock / dietary filter queries\n# ──────────────────────────────────────────────────────────────────────────────\ndef sql_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"\n    Executes a structured SQLite query built from the parsed question.\n    Handles: price filters, rating filters, stock status, dietary flags,",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "sql_search_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def sql_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"\n    Executes a structured SQLite query built from the parsed question.\n    Handles: price filters, rating filters, stock status, dietary flags,\n             sorting (cheapest, highest rated), and result limits.\n    Falls back to hybrid_search if no SQL filters can be extracted.\n    \"\"\"\n    import sqlite3\n    import os\n    question = state.get(\"question\", \"\").lower().strip()",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "route_after_intent",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def route_after_intent(state: Dict[str, Any]) -> str:\n    \"\"\"\n    Route after classify_intent.\n    Returns one of: \"needs_search\" | \"direct_response\"\n    Guaranteed to always return a valid key.\n    \"\"\"\n    needs = state.get(\"needs_search\", False)\n    # Treat truthy / string \"true\" / 1 all as needing search\n    if needs and str(needs).lower() not in (\"false\", \"0\", \"no\", \"\"):\n        return \"needs_search\"",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "route_search_strategy",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def route_search_strategy(state: Dict[str, Any]) -> str:\n    \"\"\"\n    Decides which search node to use.\n    Returns one of: \"sql_search\" | \"keyword_search\" | \"vector_search\" | \"hybrid_search\"\n    Guaranteed to always return a valid key — no infinite loop possible.\n    \"\"\"\n    question = state.get(\"question\", \"\").lower()\n    # 1. Structured filter query → SQLite\n    if _SQL_PATTERN.search(question):\n        logger.info(f\"route → sql_search  (question: {question[:60]})\")",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "build_agent_graph",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def build_agent_graph():\n    \"\"\"\n    Build the hybrid search agent.\n    Node registration order matters in LangGraph:\n    ALL nodes must be added before any conditional_edges reference them.\n    \"\"\"\n    workflow = StateGraph(dict)\n    # ── Register ALL nodes first ───────────────────────────────────────────\n    workflow.add_node(\"classify_intent\",   classify_intent)\n    # passthrough router",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "get_agent_graph",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "def get_agent_graph():\n    global _agent_graph\n    if _agent_graph is None:\n        _agent_graph = build_agent_graph()\n    return _agent_graph",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n_llm = None\n_ollama_available = False\ndef set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "_llm",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "_llm = None\n_ollama_available = False\ndef set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "_ollama_available",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "_ollama_available = False\ndef set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)\n# ──────────────────────────────────────────────────────────────────────────────",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "_SQL_TRIGGERS",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "_SQL_TRIGGERS = [\n    # price\n    r'\\$[\\d.]+',\n    r'\\d+\\s*dollars?',\n    r'(?:under|below|less than|lower than|more expensive than|cheaper than|over|above|more than|between)\\s*\\$?[\\d.]',\n    r'(?:cheapest|most expensive|lowest price|highest price|affordable)',\n    # rating\n    r'rating\\s*(?:higher|above|over|at least|greater)',\n    r'(?:above|over|at least)\\s*[\\d.]+\\s*stars?',\n    r'highly rated|best rated|top rated',",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "_SQL_PATTERN",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "_SQL_PATTERN = re.compile(\"|\".join(_SQL_TRIGGERS), re.IGNORECASE)\ndef route_after_intent(state: Dict[str, Any]) -> str:\n    \"\"\"\n    Route after classify_intent.\n    Returns one of: \"needs_search\" | \"direct_response\"\n    Guaranteed to always return a valid key.\n    \"\"\"\n    needs = state.get(\"needs_search\", False)\n    # Treat truthy / string \"true\" / 1 all as needing search\n    if needs and str(needs).lower() not in (\"false\", \"0\", \"no\", \"\"):",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "_agent_graph",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_graph",
+        "description": "ai-chatbot.chat.agent_graph",
+        "peekOfCode": "_agent_graph = None\ndef get_agent_graph():\n    global _agent_graph\n    if _agent_graph is None:\n        _agent_graph = build_agent_graph()\n    return _agent_graph",
+        "detail": "ai-chatbot.chat.agent_graph",
+        "documentation": {}
+    },
+    {
+        "label": "get_conversation_context",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def get_conversation_context(session_id: str) -> Dict:\n    if session_id not in CONVERSATION_CONTEXT:\n        CONVERSATION_CONTEXT[session_id] = {\n            \"last_search_results\": [],\n            \"last_question\": \"\",\n            \"last_answer\": \"\",\n            \"conversation_history\": []\n        }\n    return CONVERSATION_CONTEXT[session_id]\ndef update_conversation_context(session_id: str, question: str, answer: str, products: List):",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "update_conversation_context",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def update_conversation_context(session_id: str, question: str, answer: str, products: List):\n    context = get_conversation_context(session_id)\n    context[\"last_question\"] = question\n    context[\"last_answer\"] = answer\n    if products:\n        context[\"last_search_results\"] = products\n    context[\"conversation_history\"].append({\n        \"question\": question,\n        \"answer\": answer,\n        \"products\": products",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "extract_simple_keywords",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def extract_simple_keywords(question: str) -> str:\n    \"\"\"Extract keywords from question for search\"\"\"\n    common_words = [\n        'i', 'want', 'to', 'see', 'the', 'a', 'an', 'and', 'or',\n        'for', 'of', 'with', 'get', 'show', 'tell', 'me', 'please',\n        'what', 'is', 'are', 'can', 'you', 'do', 'does', 'have',\n        'about', 'details', 'more', 'info', 'information', \"show\", \"image\"\n    ]\n    words = question.lower().split()\n    keywords = [w for w in words if w not in common_words and len(w) > 2]",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "classify_intent",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def classify_intent(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"\n    Classify intent with context awareness.\n    Called by LangGraph as a node — must accept only (state).\n    \"\"\"\n    session_id = state.get(\"session_id\", \"default\")   # ← read from state, not arg\n    question = state.get('question', '').lower().strip()\n    steps = state.get('reasoning_steps', []).copy()\n    context = get_conversation_context(session_id)\n    last_products = context.get(\"last_search_results\", [])",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "keyword_search_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def keyword_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"Pure keyword search using SQLite (fast, exact matches)\"\"\"\n    from database.dataManager import search_sqlite, get_all_product_names\n    question = state.get('question', '')\n    steps = state.get('reasoning_steps', []).copy()\n    logger.info(f\"🔍 Keyword searching for: {question}\")\n    keywords = extract_simple_keywords(question)\n    results = search_sqlite(keywords, limit=5)\n    if results:\n        steps.append(f\"✅ Keyword search found {len(results)} products\")",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "vector_search_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def vector_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"Pure vector search using ChromaDB (semantic, meaning-based)\"\"\"\n    from database.dataManager import search_chromadb, get_all_product_names, search_sqlite\n    question = state.get('question', '')\n    steps = state.get('reasoning_steps', []).copy()\n    logger.info(f\"🔍 Vector searching for: {question}\")\n    results = search_chromadb(question, k=5)\n    if results:\n        enhanced = []\n        for result in results:",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "hybrid_search_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def hybrid_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"Hybrid search: vector first, keyword fallback\"\"\"\n    from database.dataManager import search_chromadb, search_sqlite, get_all_product_names\n    question = state.get('question', '')\n    steps = state.get('reasoning_steps', []).copy()\n    logger.info(f\"🔍 Hybrid searching for: {question}\")\n    # Step 1: vector\n    vector_results = search_chromadb(question, k=5)\n    if vector_results:\n        enhanced = []",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "generate_answer",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "def generate_answer(state: Dict[str, Any], llm=None, ollama_available: bool = False) -> Dict[str, Any]:\n    \"\"\"\n    Generate answer with context awareness.\n    Reads search_results (unified key matching all search nodes + graph's sql_search).\n    \"\"\"\n    session_id = state.get(\"session_id\", \"default\")  # ← read from state\n    question   = state.get('question', '')\n    steps      = state.get('reasoning_steps', []).copy()\n    context      = get_conversation_context(session_id)\n    last_products = context.get(\"last_search_results\", [])",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# ============================================================\n# CONVERSATION CONTEXT MEMORY\n# ============================================================\nCONVERSATION_CONTEXT = {}\ndef get_conversation_context(session_id: str) -> Dict:\n    if session_id not in CONVERSATION_CONTEXT:\n        CONVERSATION_CONTEXT[session_id] = {\n            \"last_search_results\": [],\n            \"last_question\": \"\",",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "CONVERSATION_CONTEXT",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.agent_nodes",
+        "description": "ai-chatbot.chat.agent_nodes",
+        "peekOfCode": "CONVERSATION_CONTEXT = {}\ndef get_conversation_context(session_id: str) -> Dict:\n    if session_id not in CONVERSATION_CONTEXT:\n        CONVERSATION_CONTEXT[session_id] = {\n            \"last_search_results\": [],\n            \"last_question\": \"\",\n            \"last_answer\": \"\",\n            \"conversation_history\": []\n        }\n    return CONVERSATION_CONTEXT[session_id]",
+        "detail": "ai-chatbot.chat.agent_nodes",
+        "documentation": {}
+    },
+    {
+        "label": "AgentState",
+        "kind": 6,
+        "importPath": "ai-chatbot.chat.agent_state",
+        "description": "ai-chatbot.chat.agent_state",
+        "peekOfCode": "class AgentState(TypedDict):\n    \"\"\"State that flows through the LangGraph nodes\"\"\"\n    # Input\n    question: str\n    # Analysis results\n    intent: str\n    entities: List[str]\n    search_terms: List[str]\n    dietary_restrictions: List[str]\n    # Retrieved data",
+        "detail": "ai-chatbot.chat.agent_state",
+        "documentation": {}
+    },
+    {
+        "label": "create_initial_state",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.agent_state",
+        "description": "ai-chatbot.chat.agent_state",
+        "peekOfCode": "def create_initial_state(question: str) -> AgentState:\n    \"\"\"Create initial state for the agent\"\"\"\n    return {\n        \"question\": question,\n        \"intent\": \"\",\n        \"entities\": [],\n        \"search_terms\": [],\n        \"dietary_restrictions\": [],\n        \"retrieved_products\": [],\n        \"product_count\": 0,",
+        "detail": "ai-chatbot.chat.agent_state",
+        "documentation": {}
+    },
+    {
+        "label": "chatter",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.chat",
+        "description": "ai-chatbot.chat.chat",
+        "peekOfCode": "def chatter(text):\n    result = getSimilarProducts(text)\n    return result",
+        "detail": "ai-chatbot.chat.chat",
+        "documentation": {}
+    },
+    {
+        "label": "set_llm",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)\n# ──────────────────────────────────────────────────────────────────────────────\n# SQL search node — handles price / rating / stock / dietary filter queries",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "generate_answer_with_llm",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)\n# ──────────────────────────────────────────────────────────────────────────────\n# SQL search node — handles price / rating / stock / dietary filter queries\n# ──────────────────────────────────────────────────────────────────────────────\ndef sql_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"\n    Executes a structured SQLite query built from the parsed question.\n    Handles: price filters, rating filters, stock status, dietary flags,",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "sql_search_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def sql_search_products(state: Dict[str, Any]) -> Dict[str, Any]:\n    \"\"\"\n    Executes a structured SQLite query built from the parsed question.\n    Handles: price filters, rating filters, stock status, dietary flags,\n             sorting (cheapest, highest rated), and result limits.\n    Falls back to hybrid_search if no SQL filters can be extracted.\n    \"\"\"\n    import sqlite3\n    import os\n    question = state.get(\"question\", \"\").lower().strip()",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "route_after_intent",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def route_after_intent(state: Dict[str, Any]) -> str:\n    \"\"\"\n    Route after classify_intent.\n    Returns one of: \"needs_search\" | \"direct_response\"\n    Guaranteed to always return a valid key.\n    \"\"\"\n    needs = state.get(\"needs_search\", False)\n    # Treat truthy / string \"true\" / 1 all as needing search\n    if needs and str(needs).lower() not in (\"false\", \"0\", \"no\", \"\"):\n        return \"needs_search\"",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "route_search_strategy",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def route_search_strategy(state: Dict[str, Any]) -> str:\n    \"\"\"\n    Decides which search node to use.\n    Returns one of: \"sql_search\" | \"keyword_search\" | \"vector_search\" | \"hybrid_search\"\n    Guaranteed to always return a valid key — no infinite loop possible.\n    \"\"\"\n    question = state.get(\"question\", \"\").lower()\n    # 1. Structured filter query → SQLite\n    if _SQL_PATTERN.search(question):\n        logger.info(f\"route → sql_search  (question: {question[:60]})\")",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "build_agent_graph",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def build_agent_graph():\n    \"\"\"\n    Build the hybrid search agent.\n    Node registration order matters in LangGraph:\n    ALL nodes must be added before any conditional_edges reference them.\n    \"\"\"\n    workflow = StateGraph(dict)\n    # ── Register ALL nodes first ───────────────────────────────────────────\n    workflow.add_node(\"classify_intent\",   classify_intent)\n    workflow.add_node(\"route_search\",      lambda x: x)          # passthrough router",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "get_agent_graph",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "def get_agent_graph():\n    global _agent_graph\n    if _agent_graph is None:\n        _agent_graph = build_agent_graph()\n    return _agent_graph",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n_llm = None\n_ollama_available = False\ndef set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "_llm",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "_llm = None\n_ollama_available = False\ndef set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "_ollama_available",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "_ollama_available = False\ndef set_llm(llm, ollama_available):\n    \"\"\"Set LLM instance\"\"\"\n    global _llm, _ollama_available\n    _llm = llm\n    _ollama_available = ollama_available\ndef generate_answer_with_llm(state):\n    \"\"\"Wrapper for generate_answer\"\"\"\n    return generate_answer(state, _llm, _ollama_available)\n# ──────────────────────────────────────────────────────────────────────────────",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "_SQL_TRIGGERS",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "_SQL_TRIGGERS = [\n    # price\n    r'\\$[\\d.]+',\n    r'\\d+\\s*dollars?',\n    r'(?:under|below|less than|cheaper than|over|above|more than|between)\\s*\\$?[\\d.]',\n    r'(?:cheapest|most expensive|lowest price|highest price|affordable)',\n    # rating\n    r'rating\\s*(?:higher|above|over|at least|greater)',\n    r'(?:above|over|at least)\\s*[\\d.]+\\s*stars?',\n    r'highly rated|best rated|top rated',",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "_SQL_PATTERN",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "_SQL_PATTERN = re.compile(\"|\".join(_SQL_TRIGGERS), re.IGNORECASE)\ndef route_after_intent(state: Dict[str, Any]) -> str:\n    \"\"\"\n    Route after classify_intent.\n    Returns one of: \"needs_search\" | \"direct_response\"\n    Guaranteed to always return a valid key.\n    \"\"\"\n    needs = state.get(\"needs_search\", False)\n    # Treat truthy / string \"true\" / 1 all as needing search\n    if needs and str(needs).lower() not in (\"false\", \"0\", \"no\", \"\"):",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "_agent_graph",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.graph",
+        "description": "ai-chatbot.chat.graph",
+        "peekOfCode": "_agent_graph = None\ndef get_agent_graph():\n    global _agent_graph\n    if _agent_graph is None:\n        _agent_graph = build_agent_graph()\n    return _agent_graph",
+        "detail": "ai-chatbot.chat.graph",
+        "documentation": {}
+    },
+    {
+        "label": "setup_environment",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.utils",
+        "description": "ai-chatbot.chat.utils",
+        "peekOfCode": "def setup_environment():\n    \"\"\"Configure environment variables for proxy bypass\"\"\"\n    os.environ['NO_PROXY'] = 'localhost,127.0.0.1'\n    os.environ['HTTP_PROXY'] = ''\n    os.environ['HTTPS_PROXY'] = ''\n    os.environ['CURL_CA_BUNDLE'] = ''\n    os.environ['REQUESTS_CA_BUNDLE'] = ''\n    logger.info(\"✅ Environment configured (proxy bypassed)\")\ndef init_ollama():\n    \"\"\"Initialize Ollama with fallback models\"\"\"",
+        "detail": "ai-chatbot.chat.utils",
+        "documentation": {}
+    },
+    {
+        "label": "init_ollama",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.utils",
+        "description": "ai-chatbot.chat.utils",
+        "peekOfCode": "def init_ollama():\n    \"\"\"Initialize Ollama with fallback models\"\"\"\n    import subprocess\n    # Try different models in order of preference\n    models_to_try = ['phi3', 'llama3.2', 'llama3.2:1b', 'mistral', 'llama2']\n    for model in models_to_try:\n        try:\n            # Check if model exists\n            result = subprocess.run(['ollama', 'list'], capture_output=True, text=True)\n            if model in result.stdout:",
+        "detail": "ai-chatbot.chat.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_database_functions",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.utils",
+        "description": "ai-chatbot.chat.utils",
+        "peekOfCode": "def get_database_functions():\n    \"\"\"Import database functions with fallback\"\"\"\n    try:\n        from database.dataManager import hybrid_search, search_sqlite, get_all_products, get_product_count\n        logger.info(\"✅ Database functions loaded from database\")\n        return hybrid_search, search_sqlite, get_all_products, get_product_count\n    except ImportError:\n        try:\n            from database.dataManager import hybrid_search, search_sqlite, get_all_products, get_product_count\n            logger.info(\"✅ Database functions loaded from database.dataManager\")",
+        "detail": "ai-chatbot.chat.utils",
+        "documentation": {}
+    },
+    {
+        "label": "test_ollama_connection",
+        "kind": 2,
+        "importPath": "ai-chatbot.chat.utils",
+        "description": "ai-chatbot.chat.utils",
+        "peekOfCode": "def test_ollama_connection():\n    \"\"\"Test if Ollama is responding\"\"\"\n    try:\n        import requests\n        response = requests.get(\"http://localhost:11434/api/tags\", timeout=3)\n        if response.status_code == 200:\n            models = response.json().get('models', [])\n            model_names = [m.get('name', 'unknown') for m in models]\n            logger.info(f\"✅ Ollama running with models: {model_names}\")\n            return True, model_names",
+        "detail": "ai-chatbot.chat.utils",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.chat.utils",
+        "description": "ai-chatbot.chat.utils",
+        "peekOfCode": "logger = logging.getLogger(__name__)\ndef setup_environment():\n    \"\"\"Configure environment variables for proxy bypass\"\"\"\n    os.environ['NO_PROXY'] = 'localhost,127.0.0.1'\n    os.environ['HTTP_PROXY'] = ''\n    os.environ['HTTPS_PROXY'] = ''\n    os.environ['CURL_CA_BUNDLE'] = ''\n    os.environ['REQUESTS_CA_BUNDLE'] = ''\n    logger.info(\"✅ Environment configured (proxy bypassed)\")\ndef init_ollama():",
+        "detail": "ai-chatbot.chat.utils",
+        "documentation": {}
+    },
+    {
+        "label": "OllamaEmbeddingFunction",
+        "kind": 6,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "class OllamaEmbeddingFunction:\n    def __init__(self, model_name=\"nomic-embed-text\"):\n        self.model_name = model_name\n        self.dimension = 768\n    def _call_ollama(self, text: str) -> List[float]:\n        \"\"\"Call Ollama API for a single text, return embedding or zero vector.\"\"\"\n        try:\n            resp = session.post(\n                OLLAMA_EMBED_URL,\n                json={\"model\": self.model_name, \"input\": text[:3000]},",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_connection",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_connection():\n    \"\"\"Get SQLite connection - automatically reconnects if closed\"\"\"\n    global SQLITE_CONN\n    if SQLITE_CONN is None:\n        SQLITE_CONN = sqlite3.connect(\n            \"./king_arthur.db\", check_same_thread=False, timeout=10)\n        SQLITE_CONN.row_factory = sqlite3.Row\n        return SQLITE_CONN\n    try:\n        SQLITE_CONN.cursor().execute(\"SELECT 1\")",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "close_connection",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def close_connection():\n    \"\"\"Close database connection - call only when app shuts down\"\"\"\n    global SQLITE_CONN\n    if SQLITE_CONN:\n        SQLITE_CONN.close()\n        SQLITE_CONN = None\n        print(\"✅ Database connection closed\")\n# ============================================================\n# KEYWORD EXTRACTION & SMART SEARCH\n# ============================================================",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "extract_keywords",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def extract_keywords(question: str) -> List[str]:\n    \"\"\"Extract keywords with hyphen, plural, and multi-word phrase handling.\"\"\"\n    import re\n    normalized = _normalize(question)\n    detected_dietary = [\n        _normalize(dk) for dk in DIETARY_KEYWORDS if _normalize(dk) in normalized\n    ]\n    detected_types = [\n        pt for pt in PRODUCT_TYPES\n        if re.search(rf\"\\b{re.escape(pt)}s?\\b\", normalized)",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "search_with_keywords",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def search_with_keywords(keywords: List[str], limit: int = 10) -> List[Dict[str, Any]]:\n    \"\"\"Flexible OR search across fields; hyphen-insensitive; field-weighted ranking.\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    if not keywords:\n        return []\n    conditions, params = [], []\n    for kw in keywords:\n        pattern = f\"%{kw}%\"\n        conditions.append(",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "search_products_smart",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def search_products_smart(search_term: str, limit: int = 5) -> List[Dict[str, Any]]:\n    \"\"\"Smart search with multi-stage fallback (keywords → stemmed words longest-first).\"\"\"\n    keywords = extract_keywords(search_term)\n    print(f\"🔍 Extracted keywords: {keywords}\")\n    results = search_with_keywords(keywords, limit=limit)\n    if results:\n        return results\n    import re\n    raw_words = re.findall(r\"\\b[a-z]{4,}\\b\", _normalize(search_term))\n    candidates = sorted(",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "init_learning_tables",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def init_learning_tables():\n    \"\"\"Initialize tables for learning and patterns\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        CREATE TABLE IF NOT EXISTS search_patterns (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            search_term TEXT,\n            product_name TEXT,\n            frequency INTEGER DEFAULT 1,",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "init_sqlite",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def init_sqlite():\n    \"\"\"Initialize SQLite tables - Products and Images are separate but joined\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    # Products table (main product information)\n    cursor.execute('''\n        CREATE TABLE IF NOT EXISTS products (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            product_code TEXT UNIQUE,\n            name TEXT NOT NULL,",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "init_chromadb",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def init_chromadb():\n    \"\"\"Initialize ChromaDB with Ollama embeddings\"\"\"\n    global CHROMA_COLLECTION\n    try:\n        client = chromadb.PersistentClient(path=\"./chroma_db\")\n        try:\n            client.delete_collection(\"king_arthur_mixes\")\n        except:\n            pass\n        CHROMA_COLLECTION = client.create_collection(",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_sample_data",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_sample_data() -> List[Dict[str, Any]]:\n    \"\"\"Return sample product data for testing\"\"\"\n    products = []\n    with open(\"./data/detailInfo.json\", \"r\", encoding=\"utf-8\") as f:\n        products = json.load(f)\n    return products\n# ============================================================\n# PRODUCT STORAGE\n# ============================================================\ndef store_products(products: List[Dict]) -> int:",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "store_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def store_products(products: List[Dict]) -> int:\n    \"\"\"Store products in both databases with BATCHING to prevent Ollama crash\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    chroma_docs = []\n    chroma_ids = []\n    chroma_metadatas = []\n    saved_count = 0\n    # First, store all products in SQLite and prepare ChromaDB data\n    for idx, product in enumerate(products):",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "track_search_pattern",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def track_search_pattern(search_term: str, product_name: str):\n    \"\"\"Track which products are commonly searched together\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    try:\n        cursor.execute('''\n            INSERT INTO search_patterns (search_term, product_name, frequency, last_searched)\n            VALUES (?, ?, 1, CURRENT_TIMESTAMP)\n            ON CONFLICT(search_term, product_name) \n            DO UPDATE SET ",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_related_search_terms",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_related_search_terms(search_term: str, limit: int = 5) -> List[str]:\n    \"\"\"Get related search terms based on past patterns\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        SELECT product_name, frequency\n        FROM search_patterns \n        WHERE search_term LIKE ? OR product_name LIKE ?\n        ORDER BY frequency DESC\n        LIMIT ?",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "save_feedback",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def save_feedback(question: str, answer: str, rating: int, user_correction: str = None):\n    \"\"\"Save user feedback for learning\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    logger.info(\n        f\"question: {question}, answer: {answer}, rating: {rating}, user_correction:{user_correction}\")\n    cursor.execute('''\n        INSERT INTO feedback (question, answer, rating, user_correction)\n        VALUES (?, ?, ?, ?)\n    ''', (question, answer, rating, user_correction))",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "save_learned_response",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def save_learned_response(question: str, correct_answer: str):\n    \"\"\"Save a learned correct response for future use\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        INSERT INTO learned_responses (question, correct_answer, confidence)\n        VALUES (?, ?, 1)\n        ON CONFLICT(question) DO UPDATE SET \n            correct_answer = ?,\n            confidence = confidence + 1,",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_learned_response",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_learned_response(question: str) -> Optional[str]:\n    \"\"\"Check if we have a learned response for this question\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        SELECT correct_answer, confidence\n        FROM learned_responses \n        WHERE question = ? AND confidence > 0\n        ORDER BY confidence DESC\n        LIMIT 1",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_learning_stats",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_learning_stats() -> Dict[str, int]:\n    \"\"\"Get statistics about what the agent has learned\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    stats = {}\n    cursor.execute(\"SELECT COUNT(*) FROM search_patterns\")\n    stats['search_patterns'] = cursor.fetchone()[0]\n    cursor.execute(\"SELECT COUNT(*) FROM feedback WHERE rating = 1\")\n    stats['positive_feedback'] = cursor.fetchone()[0]\n    cursor.execute(\"SELECT COUNT(*) FROM feedback WHERE rating = 0\")",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_all_products(limit: Optional[int] = None) -> List[Dict[str, Any]]:\n    \"\"\"Get all products from SQLite with their images (JOINed)\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    query = '''\n        SELECT p.*, \n               GROUP_CONCAT(DISTINCT pi.image_url) as image_list\n        FROM products p\n        LEFT JOIN product_images pi ON p.id = pi.product_id\n    '''",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_product_count",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_product_count() -> int:\n    \"\"\"Get total number of products\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute(\"SELECT COUNT(*) FROM products\")\n    return cursor.fetchone()[0]\ndef search_sqlite(search_term: str, limit: int = 10) -> List[Dict[str, Any]]:\n    \"\"\"Search SQLite by name, description, or ingredients (with images)\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "search_sqlite",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def search_sqlite(search_term: str, limit: int = 10) -> List[Dict[str, Any]]:\n    \"\"\"Search SQLite by name, description, or ingredients (with images)\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    search_pattern = f\"%{search_term}%\"\n    print(search_pattern)\n    cursor.execute('''\n        SELECT p.*, \n               GROUP_CONCAT(DISTINCT pi.image_url) as image_list\n        FROM products p",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_string",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def ensure_string(query):\n    \"\"\"Convert query to string if it's a list\"\"\"\n    if isinstance(query, list):\n        return ' '.join(query) if query else \"\"\n    return str(query) if query else \"\"\ndef search_chromadb(query: str, k: int = 5) -> List[Dict]:\n    \"\"\"Search ChromaDB semantically\"\"\"\n    if not CHROMA_COLLECTION:\n        return []\n    try:",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "search_chromadb",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def search_chromadb(query: str, k: int = 5) -> List[Dict]:\n    \"\"\"Search ChromaDB semantically\"\"\"\n    if not CHROMA_COLLECTION:\n        return []\n    try:\n        query = ensure_string(query)\n        results = CHROMA_COLLECTION.query(\n            query_texts=[query],\n            n_results=k\n        )",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "hybrid_search",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def hybrid_search(query: str, k: int = 5) -> List[Dict[str, Any]]:\n    \"\"\"Combine SQLite and ChromaDB search\"\"\"\n    sql_results = search_sqlite(query, k)\n    if sql_results:\n        return sql_results\n    if isinstance(query, list):\n        query = ' '.join(query)\n    chroma_results = search_chromadb(query, k)\n    if chroma_results:\n        enhanced = []",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "fast_search",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def fast_search(query: str, k: int = 5) -> List[Dict]:\n    \"\"\"Fast search using only SQLite (with images)\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        SELECT p.*, \n               GROUP_CONCAT(DISTINCT pi.image_url) as image_list\n        FROM products p\n        LEFT JOIN product_images pi ON p.id = pi.product_id\n        WHERE p.name LIKE ? OR p.description LIKE ? OR p.ingredients LIKE ?",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_product_by_code",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_product_by_code(product_code: str) -> Optional[Dict[str, Any]]:\n    \"\"\"Get product by product code with its images\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        SELECT p.*, \n               GROUP_CONCAT(DISTINCT pi.image_url) as image_list\n        FROM products p\n        LEFT JOIN product_images pi ON p.id = pi.product_id\n        WHERE p.product_code = ?",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_product_by_name",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_product_by_name(name: str) -> Optional[Dict[str, Any]]:\n    \"\"\"Get product by exact name with its images\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        SELECT p.*, \n               GROUP_CONCAT(DISTINCT pi.image_url) as image_list\n        FROM products p\n        LEFT JOIN product_images pi ON p.id = pi.product_id\n        WHERE p.name = ?",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_product_names",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_all_product_names() -> List[str]:\n    \"\"\"Get list of all product names for context\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute(\"SELECT name FROM products LIMIT 20\")\n    return [row['name'] for row in cursor.fetchall()]\ndef get_product_with_images(product_id: int) -> Optional[Dict[str, Any]]:\n    \"\"\"Get product with all images from the joined tables\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "get_product_with_images",
+        "kind": 2,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "def get_product_with_images(product_id: int) -> Optional[Dict[str, Any]]:\n    \"\"\"Get product with all images from the joined tables\"\"\"\n    conn = get_connection()\n    cursor = conn.cursor()\n    cursor.execute('''\n        SELECT p.*, \n               GROUP_CONCAT(DISTINCT pi.image_url) as image_list\n        FROM products p\n        LEFT JOIN product_images pi ON p.id = pi.product_id\n        WHERE p.id = ?",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "SQLITE_CONN",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "SQLITE_CONN = None\nCHROMA_COLLECTION = None\n# -----------------------------\n# CONSTANTS\n# -----------------------------\nEMBED_MODEL = \"nomic-embed-text\"  # Changed to more stable model\nOLLAMA_EMBED_URL = \"http://127.0.0.1:11434/api/embed\"\nBATCH_SIZE = 5  # Process 5 products at a time\nRETRY_COUNT = 3\nDELAY_BETWEEN_BATCHES = 0.5",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "CHROMA_COLLECTION",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "CHROMA_COLLECTION = None\n# -----------------------------\n# CONSTANTS\n# -----------------------------\nEMBED_MODEL = \"nomic-embed-text\"  # Changed to more stable model\nOLLAMA_EMBED_URL = \"http://127.0.0.1:11434/api/embed\"\nBATCH_SIZE = 5  # Process 5 products at a time\nRETRY_COUNT = 3\nDELAY_BETWEEN_BATCHES = 0.5\n# -----------------------------",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "EMBED_MODEL",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "EMBED_MODEL = \"nomic-embed-text\"  # Changed to more stable model\nOLLAMA_EMBED_URL = \"http://127.0.0.1:11434/api/embed\"\nBATCH_SIZE = 5  # Process 5 products at a time\nRETRY_COUNT = 3\nDELAY_BETWEEN_BATCHES = 0.5\n# -----------------------------\n# REQUESTS SESSION with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "OLLAMA_EMBED_URL",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "OLLAMA_EMBED_URL = \"http://127.0.0.1:11434/api/embed\"\nBATCH_SIZE = 5  # Process 5 products at a time\nRETRY_COUNT = 3\nDELAY_BETWEEN_BATCHES = 0.5\n# -----------------------------\n# REQUESTS SESSION with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "BATCH_SIZE",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "BATCH_SIZE = 5  # Process 5 products at a time\nRETRY_COUNT = 3\nDELAY_BETWEEN_BATCHES = 0.5\n# -----------------------------\n# REQUESTS SESSION with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification\nssl_context = ssl.create_default_context()",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "RETRY_COUNT",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "RETRY_COUNT = 3\nDELAY_BETWEEN_BATCHES = 0.5\n# -----------------------------\n# REQUESTS SESSION with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "DELAY_BETWEEN_BATCHES",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "DELAY_BETWEEN_BATCHES = 0.5\n# -----------------------------\n# REQUESTS SESSION with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "session = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "session.trust_env",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "session.trust_env = False\n# Create an SSL context that skips hostname verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "ssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context.check_hostname",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "ssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context.verify_mode",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "ssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\nlogger = logging.getLogger(__name__)",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "adapter",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "adapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\nlogger = logging.getLogger(__name__)\n# ============================================================\n# OLLAMA EMBEDDING FUNCTION",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "adapter.init_poolmanager",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "adapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\nlogger = logging.getLogger(__name__)\n# ============================================================\n# OLLAMA EMBEDDING FUNCTION\n# ============================================================",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# ============================================================\n# OLLAMA EMBEDDING FUNCTION\n# ============================================================\nclass OllamaEmbeddingFunction:\n    def __init__(self, model_name=\"nomic-embed-text\"):\n        self.model_name = model_name\n        self.dimension = 768\n    def _call_ollama(self, text: str) -> List[float]:\n        \"\"\"Call Ollama API for a single text, return embedding or zero vector.\"\"\"",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "STOP_WORDS",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "STOP_WORDS = {\n    'i', 'want', 'to', 'see', 'the', 'a', 'an', 'and', 'or', 'but',\n    'for', 'of', 'with', 'without', 'on', 'at', 'by', 'in', 'out',\n    'up', 'down', 'from', 'get', 'show', 'tell', 'me', 'my', 'your',\n    'please', 'can', 'could', 'would', 'should', 'do', 'does', 'is',\n    'are', 'was', 'were', 'have', 'has', 'had', 'be', 'been', 'being',\n    'give', 'find', 'search', 'look', 'need', 'like', 'want', 'help'\n}\n# Product types for prioritization\nPRODUCT_TYPES = ['brownie', 'pizza', 'cake', 'bread', 'cookie', 'muffin',",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "PRODUCT_TYPES",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "PRODUCT_TYPES = ['brownie', 'pizza', 'cake', 'bread', 'cookie', 'muffin',\n                 'babka', 'scone', 'roll', 'biscuit', 'waffle', 'pancake',\n                 'cinnamon', 'donut', 'croissant', 'bagel', 'brioche']\n# Dietary keywords for prioritization\nDIETARY_KEYWORDS = ['gluten', 'gluten-free', 'gluten free', 'vegan', 'dairy-free',\n                    'dairy free', 'nut-free', 'nut free', 'organic', 'kosher',\n                    'non-gmo', 'non gmo', 'sugar-free', 'sugar free']\ndef _normalize(s: str) -> str:\n    \"\"\"Lowercase, replace hyphens/underscores with spaces, collapse whitespace.\"\"\"\n    if not s:",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "DIETARY_KEYWORDS",
+        "kind": 5,
+        "importPath": "ai-chatbot.database.dataManager",
+        "description": "ai-chatbot.database.dataManager",
+        "peekOfCode": "DIETARY_KEYWORDS = ['gluten', 'gluten-free', 'gluten free', 'vegan', 'dairy-free',\n                    'dairy free', 'nut-free', 'nut free', 'organic', 'kosher',\n                    'non-gmo', 'non gmo', 'sugar-free', 'sugar free']\ndef _normalize(s: str) -> str:\n    \"\"\"Lowercase, replace hyphens/underscores with spaces, collapse whitespace.\"\"\"\n    if not s:\n        return \"\"\n    s = s.lower().replace(\"-\", \" \").replace(\"_\", \" \")\n    return \" \".join(s.split())\ndef _stem(word: str) -> str:",
+        "detail": "ai-chatbot.database.dataManager",
+        "documentation": {}
+    },
+    {
+        "label": "load_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "def load_products():\n    with open(INPUT_FILE, \"r\", encoding=\"utf-8\") as f:\n        products = json.load(f)\n    print(f\"Loaded {len(products)} products\")\n    return products\n# -----------------------------\n# Generate Embedding\n# -----------------------------\ndef get_embedding(text):\n    try:",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "get_embedding",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "def get_embedding(text):\n    try:\n        response = session.post(\n            OLLAMA_URL,\n            json={\n                \"model\": EMBED_MODEL,\n                \"input\": text[:5000]\n            },\n            timeout=20,\n            verify=False  # Disable SSL verification for local server",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "generate_embeddings",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "def generate_embeddings(products):\n    embedded_products = []\n    total = len(products)\n    for index, product in enumerate(products):\n        text = f\"\"\"\n        Product Name:\n        {product.get('name', '')}\n        Description:\n        {product.get('description', '')}\n        Ingredients:",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "save_embedded_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "def save_embedded_products(products):\n    with open(OUTPUT_FILE, \"w\", encoding=\"utf-8\") as f:\n        json.dump(products, f, indent=2, ensure_ascii=False)\n    print(\"\\nFinished\")\n    print(f\"Saved {len(products)} products\")\n    print(f\"File: {OUTPUT_FILE}\")\n# -----------------------------\n# Main\n# -----------------------------\ndef main():",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "def main():\n    products = load_products()\n    embedded_products = generate_embeddings(products)\n    save_embedded_products(embedded_products)\nif __name__ == \"__main__\":\n    main()",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "INPUT_FILE",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "INPUT_FILE = \"../data/detailInfo.json\"\nOUTPUT_FILE = \"../data/embedded_products.json\"\nEMBED_MODEL = \"mxbai-embed-large\"\n# Change to 'http://' if your server does not support HTTPS\nOLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_FILE",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "OUTPUT_FILE = \"../data/embedded_products.json\"\nEMBED_MODEL = \"mxbai-embed-large\"\n# Change to 'http://' if your server does not support HTTPS\nOLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "EMBED_MODEL",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "EMBED_MODEL = \"mxbai-embed-large\"\n# Change to 'http://' if your server does not support HTTPS\nOLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "OLLAMA_URL",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "OLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "session = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "session.trust_env",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "session.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "ssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context.check_hostname",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "ssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context.verify_mode",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "ssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\n# -----------------------------",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "adapter",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "adapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\n# -----------------------------\n# Load Products\n# -----------------------------",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "adapter.init_poolmanager",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.build_embeddings",
+        "description": "ai-chatbot.embeddings.build_embeddings",
+        "peekOfCode": "adapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\n# -----------------------------\n# Load Products\n# -----------------------------\ndef load_products():",
+        "detail": "ai-chatbot.embeddings.build_embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "get_embedding",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "def get_embedding(text):\n    try:\n        response = session.post(\n            OLLAMA_URL,\n            json={\n                \"model\": EMBED_MODEL,\n                \"input\": text[:5000]\n            },\n            timeout=20,\n            verify=False  # Disable SSL verification for local server",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "cosine_similarity",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "def cosine_similarity(a, b):\n    a = np.array(a)\n    b = np.array(b)\n    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))\ndef getSimilarProducts(text):\n    try:\n        embedded_products = []\n        products = []\n        result = []\n        top_products = []",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "getSimilarProducts",
+        "kind": 2,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "def getSimilarProducts(text):\n    try:\n        embedded_products = []\n        products = []\n        result = []\n        top_products = []\n        question_embedding = get_embedding(text)\n        with open(\"../data/embedded_products.json\", \"r\", encoding=\"utf-8\") as f:\n            embedded_products = json.load(f)\n        for product in embedded_products:",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_FILE",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "OUTPUT_FILE = \"../data/embedded_products.json\"\nEMBED_MODEL = \"mxbai-embed-large\"\n# Change to 'http://' if your server does not support HTTPS\nOLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "EMBED_MODEL",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "EMBED_MODEL = \"mxbai-embed-large\"\n# Change to 'http://' if your server does not support HTTPS\nOLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "OLLAMA_URL",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "OLLAMA_URL = \"http://127.0.0.1:11434/api/embed\"\n# -----------------------------\n# Requests Session with custom SSL context\n# -----------------------------\nsession = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "session = requests.Session()\nsession.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "session.trust_env",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "session.trust_env = False\n# Create an SSL context that skips hostname verification and disables cert verification\nssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "ssl_context = ssl.create_default_context()\nssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context.check_hostname",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "ssl_context.check_hostname = False\nssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context.verify_mode",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "ssl_context.verify_mode = ssl.CERT_NONE\n# Mount the adapter with custom SSL context\nadapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\n# -----------------------------",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "adapter",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "adapter = HTTPAdapter()\nadapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\n# -----------------------------\n# Generate Embedding\n# -----------------------------",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "adapter.init_poolmanager",
+        "kind": 5,
+        "importPath": "ai-chatbot.embeddings.similarity",
+        "description": "ai-chatbot.embeddings.similarity",
+        "peekOfCode": "adapter.init_poolmanager = lambda *args, **kwargs: PoolManager(\n    *args,\n    ssl_context=ssl_context,\n    **kwargs\n)\nsession.mount('http://', adapter)\n# -----------------------------\n# Generate Embedding\n# -----------------------------\ndef get_embedding(text):",
+        "detail": "ai-chatbot.embeddings.similarity",
+        "documentation": {}
+    },
+    {
+        "label": "get_product_urls",
+        "kind": 2,
+        "importPath": "ai-chatbot.scraper.scraper",
+        "description": "ai-chatbot.scraper.scraper",
+        "peekOfCode": "def get_product_urls(page):\n    urls = set()\n    links = page.locator(\"a[href*='/items/']\")\n    for i in range(links.count()):\n        href = links.nth(i).get_attribute(\"href\")\n        if not href:\n            continue\n        if href.startswith(\"/\"):\n            href = BASE_URL + href\n        urls.add(href)",
+        "detail": "ai-chatbot.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "load_all_products",
+        "kind": 2,
+        "importPath": "ai-chatbot.scraper.scraper",
+        "description": "ai-chatbot.scraper.scraper",
+        "peekOfCode": "def load_all_products(page):\n    \"\"\"\n    Keep scrolling until no new product URLs\n    appear for several rounds.\n    \"\"\"\n    all_urls = set()\n    no_new_rounds = 0\n    max_no_new_rounds = 8\n    while True:\n        page.mouse.wheel(0, 8000)",
+        "detail": "ai-chatbot.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_product",
+        "kind": 2,
+        "importPath": "ai-chatbot.scraper.scraper",
+        "description": "ai-chatbot.scraper.scraper",
+        "peekOfCode": "def scrape_product(page, url):\n    page.goto(\n        url,\n        wait_until=\"networkidle\",\n        timeout=60000\n    )\n    page.wait_for_timeout(2000)\n    soup = BeautifulSoup(\n        page.content(),\n        \"html.parser\"",
+        "detail": "ai-chatbot.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "ai-chatbot.scraper.scraper",
+        "description": "ai-chatbot.scraper.scraper",
+        "peekOfCode": "def main():\n    all_products = []\n    with sync_playwright() as p:\n        browser = p.chromium.launch(\n            headless=False\n        )\n        page = browser.new_page(\n            viewport={\n                \"width\": 1600,\n                \"height\": 1200",
+        "detail": "ai-chatbot.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "kind": 5,
+        "importPath": "ai-chatbot.scraper.scraper",
+        "description": "ai-chatbot.scraper.scraper",
+        "peekOfCode": "BASE_URL = \"https://shop.kingarthurbaking.com\"\nCATEGORY_URL = f\"{BASE_URL}/mixes\"\ndef get_product_urls(page):\n    urls = set()\n    links = page.locator(\"a[href*='/items/']\")\n    for i in range(links.count()):\n        href = links.nth(i).get_attribute(\"href\")\n        if not href:\n            continue\n        if href.startswith(\"/\"):",
+        "detail": "ai-chatbot.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "CATEGORY_URL",
+        "kind": 5,
+        "importPath": "ai-chatbot.scraper.scraper",
+        "description": "ai-chatbot.scraper.scraper",
+        "peekOfCode": "CATEGORY_URL = f\"{BASE_URL}/mixes\"\ndef get_product_urls(page):\n    urls = set()\n    links = page.locator(\"a[href*='/items/']\")\n    for i in range(links.count()):\n        href = links.nth(i).get_attribute(\"href\")\n        if not href:\n            continue\n        if href.startswith(\"/\"):\n            href = BASE_URL + href",
+        "detail": "ai-chatbot.scraper.scraper",
+        "documentation": {}
+    },
+    {
+        "label": "image_slider",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def image_slider(image_list: list, product_name: str = \"\"):\n    \"\"\"\n    Working image slider using st.components.v1.html()\n    JavaScript executes properly in its own iframe\n    \"\"\"\n    if not image_list:\n        st.info(\"📷 No images available for this product\")\n        return\n    # Generate unique ID\n    slider_id = hashlib.md5(f\"{product_name}{len(image_list)}\".encode()).hexdigest()[:8]",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "show_product_details",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def show_product_details(product: dict):\n    \"\"\"Display product details in an expander or modal window\"\"\"\n    print(ingredients)\n    name = product.get('name', 'Product Details')\n    price = product.get('price', 'N/A')\n    description = product.get('description', 'No description')\n    ingredients = product.get('ingredients', 'No ingredients listed')\n    contains = product.get('contains', 'No contains')\n    image_list = product.get('image_list', [])\n    instructions = product.get('instructions', '')",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "show_product_dialog",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def show_product_dialog(product: dict):\n    \"\"\"Display product details in a dialog-like container\"\"\"\n    st.session_state.selected_product = product\n    st.session_state.show_product_modal = True\n    render_product_modal()\ndef render_product_modal():\n    \"\"\"Render the product modal if active\"\"\"\n    if st.session_state.get('show_product_modal', False) and st.session_state.get('selected_product'):\n        product = st.session_state.selected_product\n        with st.container():",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "render_product_modal",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def render_product_modal():\n    \"\"\"Render the product modal if active\"\"\"\n    if st.session_state.get('show_product_modal', False) and st.session_state.get('selected_product'):\n        product = st.session_state.selected_product\n        with st.container():\n            st.markdown(\"---\")\n            st.markdown(\"## 📦 Product Details\")\n            col_close, _ = st.columns([1, 10])\n            with col_close:\n                if st.button(\"❌ Close\", key=\"close_modal\"):",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "display_product_card",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def display_product_card(product: dict, index: int):\n    \"\"\"Display a single product card with improved styling\"\"\"\n    name = product.get('name', 'Unknown')\n    price = product.get('price', 'N/A')\n    description = product.get('description', 'No description')\n    match_pct = product.get('match_percentage', 0)\n    image_list = product.get('image_list', [])\n    print('image_list', product)\n    # Get first image or placeholder\n    img_url = image_list[0] if image_list else None",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "render_response_with_images",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def render_response_with_images(response: str):\n    \"\"\"Render response text with embedded images\"\"\"\n    if '<img' in response:\n        parts = re.split(r'(<img[^>]+>)', response)\n        for part in parts:\n            if part.startswith('<img'):\n                src_match = re.search(r'src=[\"\\']([^\"\\']+)[\"\\']', part)\n                if src_match:\n                    st.image(src_match.group(1), use_container_width=True)\n            else:",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "render_chat_interface",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def render_chat_interface():\n    \"\"\"Render ChatGPT-style chat interface with messages on top and input at bottom\"\"\"\n    # Initialize chat history\n    if \"messages\" not in st.session_state:\n        st.session_state.messages = []\n    # Display chat messages from history\n    for message in st.session_state.messages:\n        with st.chat_message(message[\"role\"]):\n            st.markdown(message[\"content\"])\n    # Accept user input at the bottom",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def main():\n    # Title\n    st.markdown(\"\"\"\n    <div class=\"main-header\">\n        <h1>🍞 King Arthur Baking Assistant</h1>\n        <p>Your AI-powered baking companion</p>\n    </div>\n    \"\"\", unsafe_allow_html=True)\n    # Sidebar\n    with st.sidebar:",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "render_langgraph_view",
+        "kind": 2,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "def render_langgraph_view():\n    \"\"\"Render the LangGraph agent workflow as an interactive graph.\"\"\"\n    st.markdown(\"## 🧠 LangGraph Agent Workflow\")\n    st.caption(\"Visualization of the agent's reasoning graph (nodes = steps, edges = transitions).\")\n    # Try to pull the compiled graph from the agent module; fall back to a\n    # static representation that mirrors the known pipeline.\n    nodes = [\"START\", \"classify_intent\", \"retrieve_products\", \"generate_answer\", \"format_response\", \"END\"]\n    edges = [\n        (\"START\", \"classify_intent\"),\n        (\"classify_intent\", \"retrieve_products\"),",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.chatgpt_style_streamlit",
+        "description": "ai-chatbot.chatgpt_style_streamlit",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Initialize session ID\nif 'session_id' not in st.session_state:\n    st.session_state.session_id = str(uuid.uuid4())\natexit.register(close_connection)\n# Add the current directory to path\nsys.path.append(os.path.dirname(os.path.abspath(__file__)))\n# Import your modules\ntry:\n    from database.dataManager import init_sqlite, init_chromadb, store_products, get_product_count, hybrid_search, save_feedback, search_products_smart",
+        "detail": "ai-chatbot.chatgpt_style_streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "image_slider",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def image_slider(image_list: list, product_name: str = \"\"):\n    \"\"\"\n    Working image slider using st.components.v1.html()\n    JavaScript executes properly in its own iframe\n    \"\"\"\n    if not image_list:\n        st.info(\"📷 No images available for this product\")\n        return\n    # Generate unique ID\n    slider_id = hashlib.md5(f\"{product_name}{len(image_list)}\".encode()).hexdigest()[:8]",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "show_product_details",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def show_product_details(product: dict):\n    \"\"\"Display product details in an expander or modal window\"\"\"\n    name = product.get('name', 'Product Details')\n    price = product.get('price', 'N/A')\n    description = product.get('description', 'No description')\n    ingredients = product.get('ingredients', 'No ingredients listed')\n    contains = product.get('contains', 'No contains')\n    image_list = product.get('image_list', [])\n    instructions = product.get('instructions', '')\n    nutrition_link = product.get('nutrition_link', '')",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "show_product_dialog",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def show_product_dialog(product: dict):\n    \"\"\"Display product details in a dialog-like container\"\"\"\n    # Store selected product in session state\n    st.session_state.selected_product = product\n    st.session_state.show_product_modal = True\ndef render_product_modal():\n    \"\"\"Render the product modal if active\"\"\"\n    if st.session_state.get('show_product_modal', False) and st.session_state.get('selected_product'):\n        product = st.session_state.selected_product\n        # Create a container that looks like a modal",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "render_product_modal",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def render_product_modal():\n    \"\"\"Render the product modal if active\"\"\"\n    if st.session_state.get('show_product_modal', False) and st.session_state.get('selected_product'):\n        product = st.session_state.selected_product\n        # Create a container that looks like a modal\n        with st.container():\n            st.markdown(\"---\")\n            st.markdown(\"## 📦 Product Details\")\n            # Close button\n            col_close, _ = st.columns([1, 10])",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "display_product_card",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def display_product_card(product: dict, index: int):\n    \"\"\"Display a single product card with image and details\"\"\"\n    name = product.get('name', 'Unknown')\n    price = product.get('price', 'N/A')\n    description = product.get('description', 'No description')[:150]\n    match_pct = product.get('match_percentage', 0)\n    image_list = product.get('image_list', [])\n    # Create columns for image and text\n    col_img, col_text = st.columns([1, 3])\n    with col_img:",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "render_response_with_images",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def render_response_with_images(response: str):\n    \"\"\"Render response text with embedded images\"\"\"\n    if '<img' in response:\n        parts = re.split(r'(<img[^>]+>)', response)\n        for part in parts:\n            if part.startswith('<img'):\n                img_match = re.search(r'src=[\"\\']([^\"\\']+)[\"\\']', part)\n                if img_match:\n                    st.image(img_match.group(1), use_container_width=True)\n            else:",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_mixes",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def get_all_mixes():\n    \"\"\"Get all mixes from JSON file\"\"\"\n    products = []\n    try:\n        with open(\"./data/detailInfo.json\", \"r\", encoding=\"utf-8\") as f:\n            products = json.load(f)\n    except FileNotFoundError:\n        st.warning(\"detailInfo.json not found\")\n    except Exception as e:\n        st.error(f\"Error loading detailInfo.json: {e}\")",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "get_sample_data",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def get_sample_data():\n    \"\"\"Get sample data from JSON file\"\"\"\n    data = []\n    try:\n        with open(\"./data/detailInfo.json\", \"r\", encoding=\"utf-8\") as f:\n            data = json.load(f)\n    except FileNotFoundError:\n        st.warning(\"products.json not found\")\n    except Exception as e:\n        st.error(f\"Error loading products.json: {e}\")",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "check_ollama_status",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def check_ollama_status():\n    \"\"\"Check if Ollama is running\"\"\"\n    try:\n        result = subprocess.run(\n            ['ollama', 'list'], \n            capture_output=True, \n            text=True, \n            timeout=5\n        )\n        if result.returncode == 0:",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_system",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def initialize_system():\n    \"\"\"Initialize database and load data if needed\"\"\"\n    try:\n        init_sqlite()\n        init_chromadb()\n    except Exception as e:\n        st.error(f\"Database initialization error: {e}\")\n        return\n    count = get_product_count()\n    if count == 0:",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "plot_agent_graph",
+        "kind": 2,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "def plot_agent_graph():\n    \"\"\"Visualize the agent graph\"\"\"\n    G = nx.DiGraph()\n    nodes = [\"User Query\", \"Analyze Query\", \"Retrieve Info\", \"Generate Reasoning\", \"Generate Answer\", \"Check Quality\"]\n    edges = [\n        (\"User Query\", \"Analyze Query\"),\n        (\"Analyze Query\", \"Retrieve Info\"),\n        (\"Retrieve Info\", \"Generate Reasoning\"),\n        (\"Generate Reasoning\", \"Generate Answer\"),\n        (\"Generate Answer\", \"Check Quality\")",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "ai-chatbot.streamlit_app",
+        "description": "ai-chatbot.streamlit_app",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Initialize session ID\nif 'session_id' not in st.session_state:\n    st.session_state.session_id = str(uuid.uuid4())\natexit.register(close_connection)\n# Add the current directory to path\nsys.path.append(os.path.dirname(os.path.abspath(__file__)))\n# Import your modules\ntry:\n    from database.dataManager import init_sqlite, init_chromadb, store_products, get_product_count, hybrid_search, save_feedback, search_products_smart",
+        "detail": "ai-chatbot.streamlit_app",
+        "documentation": {}
+    },
+    {
+        "label": "possible_paths",
+        "kind": 5,
+        "importPath": "ai-chatbot.view_sqlite",
+        "description": "ai-chatbot.view_sqlite",
+        "peekOfCode": "possible_paths = [\n    \"data/database/king_arthur.db\",\n    \"king_arthur.db\",\n    \"chroma_db/chroma.sqlite3\",  # ChromaDB uses sqlite internally\n]\ndb_path = None\nfor p in possible_paths:\n    if Path(p).exists():\n        db_path = p\n        break",
+        "detail": "ai-chatbot.view_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "db_path",
+        "kind": 5,
+        "importPath": "ai-chatbot.view_sqlite",
+        "description": "ai-chatbot.view_sqlite",
+        "peekOfCode": "db_path = None\nfor p in possible_paths:\n    if Path(p).exists():\n        db_path = p\n        break\nif not db_path:\n    print(\"❌ No database file found. Check paths.\")\n    exit()\nprint(f\"📂 Using database: {db_path}\\n\")\nconn = sqlite3.connect(db_path)",
+        "detail": "ai-chatbot.view_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "kind": 5,
+        "importPath": "ai-chatbot.view_sqlite",
+        "description": "ai-chatbot.view_sqlite",
+        "peekOfCode": "conn = sqlite3.connect(db_path)\ncursor = conn.cursor()\n# 1. Show all tables\ncursor.execute(\"SELECT name FROM sqlite_master WHERE type='table';\")\ntables = [row[0] for row in cursor.fetchall()]\nprint(\"📋 Tables:\", tables)\n# 2. For each table, show row count and first few rows\nfor table in tables:\n    cursor.execute(f\"SELECT COUNT(*) FROM {table}\")\n    count = cursor.fetchone()[0]",
+        "detail": "ai-chatbot.view_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "cursor",
+        "kind": 5,
+        "importPath": "ai-chatbot.view_sqlite",
+        "description": "ai-chatbot.view_sqlite",
+        "peekOfCode": "cursor = conn.cursor()\n# 1. Show all tables\ncursor.execute(\"SELECT name FROM sqlite_master WHERE type='table';\")\ntables = [row[0] for row in cursor.fetchall()]\nprint(\"📋 Tables:\", tables)\n# 2. For each table, show row count and first few rows\nfor table in tables:\n    cursor.execute(f\"SELECT COUNT(*) FROM {table}\")\n    count = cursor.fetchone()[0]\n    print(f\"\\n── {table} ({count} rows) ──\")",
+        "detail": "ai-chatbot.view_sqlite",
+        "documentation": {}
+    },
+    {
+        "label": "tables",
+        "kind": 5,
+        "importPath": "ai-chatbot.view_sqlite",
+        "description": "ai-chatbot.view_sqlite",
+        "peekOfCode": "tables = [row[0] for row in cursor.fetchall()]\nprint(\"📋 Tables:\", tables)\n# 2. For each table, show row count and first few rows\nfor table in tables:\n    cursor.execute(f\"SELECT COUNT(*) FROM {table}\")\n    count = cursor.fetchone()[0]\n    print(f\"\\n── {table} ({count} rows) ──\")\n    if count > 0:\n        cursor.execute(f\"SELECT * FROM {table} LIMIT 5\")\n        rows = cursor.fetchall()",
+        "detail": "ai-chatbot.view_sqlite",
+        "documentation": {}
+    }
+]
