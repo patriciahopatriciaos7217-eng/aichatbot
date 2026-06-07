@@ -118,6 +118,171 @@ def _enrich_chroma_results(results: List[Dict]) -> List[Dict[str, Any]]:
 
 
 # ============================================================
+# RELEVANCE GATE + FLEXIBLE (LLM) ANSWERS + LEARNING
+# ============================================================
+
+# Baking vocabulary for the no-LLM relevance heuristic.
+_BAKING_TERMS = {
+    'bake', 'baking', 'baker', 'mix', 'mixes', 'flour', 'dough', 'batter',
+    'recipe', 'recipes', 'cake', 'cookie', 'cookies', 'brownie', 'brownies',
+    'bread', 'pizza', 'muffin', 'muffins', 'scone', 'biscuit', 'pancake',
+    'waffle', 'babka', 'roll', 'rolls', 'bagel', 'brioche', 'croissant',
+    'donut', 'doughnut', 'pastry', 'pie', 'crust', 'frosting', 'icing',
+    'glaze', 'yeast', 'sourdough', 'gluten', 'vegan', 'organic', 'kosher',
+    'dairy', 'ingredient', 'ingredients', 'allergen', 'nutrition', 'oven',
+    'sugar', 'butter', 'egg', 'eggs', 'chocolate', 'vanilla', 'cinnamon',
+    'sweet', 'dessert', 'cook', 'cooking', 'food', 'kitchen', 'king arthur',
+    'product', 'products', 'price', 'stock', 'rating',
+}
+
+
+def _is_baking_related(question: str, llm=None, ollama_available: bool = False) -> bool:
+    """Decide whether a question is about baking / mixes / food.
+
+    Uses the LLM when available (most accurate), otherwise a keyword heuristic.
+    Fails OPEN (returns True on uncertainty) so a genuine baking question is
+    never wrongly refused.
+    """
+    q = (question or "").lower().strip()
+    if not q:
+        return True
+
+    # Clear baking vocabulary → on-topic (also avoids a needless LLM call).
+    if any(term in q for term in _BAKING_TERMS):
+        return True
+
+    if ollama_available and llm:
+        try:
+            verdict = llm.invoke(
+                "You are a classifier for a baking-mix shopping assistant.\n"
+                f'User message: "{question}"\n\n'
+                "Is this message about baking, cooking, food, recipes, ingredients, "
+                "or baking mixes/products? Answer with ONLY one word: YES or NO."
+            )
+            return "yes" in str(verdict).strip().lower()[:5]
+        except Exception as e:
+            logger.error(f"relevance LLM error: {e}")
+            return True  # fail open
+
+    # No LLM and no baking keyword → treat as off-topic.
+    return False
+
+
+def _shares_keyword(question: str, products: List[Dict]) -> bool:
+    """True if the question shares a meaningful word with any returned product.
+
+    Used as a safety net: if a semantic hit overlaps the query, it's probably a
+    real match, so we must NOT discard it as 'off-topic' (matters most when the
+    LLM is unavailable and the relevance heuristic is weak).
+    """
+    stop = {'the', 'and', 'you', 'have', 'what', 'for', 'with', 'can', 'are',
+            'does', 'show', 'tell', 'about', 'this', 'that', 'your', 'from',
+            'get', 'any', 'some', 'want', 'need', 'make', 'how', 'where'}
+    q_tokens = {w for w in re.findall(r'[a-z]{3,}', (question or '').lower())} - stop
+    if not q_tokens:
+        return False
+    for p in products[:5]:
+        text = f"{p.get('name', '')} {p.get('description', '')}".lower()
+        if any(t in text for t in q_tokens):
+            return True
+    return False
+
+
+def _flexible_answer(question: str, on_topic: bool, llm=None,
+                     ollama_available: bool = False) -> str:
+    """Produce a helpful answer when no relevant product was found.
+
+    on_topic=True  → answer the baking question helpfully.
+    on_topic=False → politely steer back to baking WITHOUT recommending products.
+    Never dumps the product catalog.
+    """
+    if ollama_available and llm:
+        if on_topic:
+            prompt = (
+                "You are the King Arthur Baking Assistant, a friendly baking expert.\n"
+                f'The user asked: "{question}"\n\n'
+                "Give a genuinely helpful, concise answer about baking. Do NOT invent "
+                "product names, prices, or a catalog list. You may mention that we "
+                "carry King Arthur baking mixes, but keep the focus on answering."
+            )
+        else:
+            prompt = (
+                "You are the King Arthur Baking Assistant. You ONLY help with baking, "
+                "mixes, ingredients, and recipes.\n"
+                f'The user said: "{question}"\n\n'
+                "This is NOT related to baking. Politely and briefly say you specialize "
+                "in baking and King Arthur mixes, and invite a baking-related question. "
+                "Do NOT recommend or list any products."
+            )
+        try:
+            return str(llm.invoke(prompt)).strip()
+        except Exception as e:
+            logger.error(f"flexible answer LLM error: {e}")
+
+    # Static fallback (no LLM) — still no catalog dump.
+    if on_topic:
+        return (
+            "I'm the King Arthur Baking Assistant. I couldn't find a specific product "
+            "for that, but I'm happy to help with baking questions, ingredients, and "
+            "recipes. Could you tell me a bit more about what you're baking?"
+        )
+    return (
+        "I'm the King Arthur Baking Assistant, so I specialize in baking, mixes, "
+        "ingredients, and recipes. I can't help with that one — but ask me anything "
+        "about baking, e.g. \"What gluten-free brownie mixes do you have?\""
+    )
+
+
+_REFERENCE_WORDS = {
+    'first', 'second', 'third', 'fourth', 'fifth', 'last',
+    '1st', '2nd', '3rd', '4th', '5th',
+    'detail', 'details', 'more', 'it', 'this', 'that', 'elaborate',
+}
+
+
+def is_cacheable_question(question: str) -> bool:
+    """Whether a question is safe to store/serve as a learned response.
+
+    Excludes short, context-dependent queries (bare numbers, ordinals,
+    'details', follow-ups) that only make sense relative to previous results —
+    caching those would, e.g., make typing "2" always return a stale answer
+    instead of selecting product #2.
+    """
+    q = (question or "").lower().strip()
+    if not q or q.isdigit():
+        return False
+    words = q.split()
+    if len(words) < 3:
+        return False
+    if any(w in _REFERENCE_WORDS for w in words):
+        return False
+    return True
+
+
+def _remember_learned(question: str, answer: str) -> None:
+    """Persist an informational answer so the bot serves it consistently later."""
+    if not is_cacheable_question(question):
+        return
+    try:
+        from database.dataManager import save_learned_response
+        save_learned_response(question, answer)
+    except Exception as e:
+        logger.error(f"save_learned_response failed: {e}")
+
+
+def _track_patterns(question: str, products: List[Dict]) -> None:
+    """Record which products a query surfaced (search-pattern learning)."""
+    try:
+        from database.dataManager import track_search_pattern
+        for p in products[:3]:
+            name = p.get('name')
+            if name:
+                track_search_pattern(question, name)
+    except Exception as e:
+        logger.error(f"track_search_pattern failed: {e}")
+
+
+# ============================================================
 # INTENT CLASSIFICATION
 # FIX: removed session_id parameter — graph calls this as a node
 #      with only (state). session_id falls back to "default".
@@ -581,6 +746,24 @@ def generate_answer(state: Dict[str, Any], llm=None, ollama_available: bool = Fa
         products = search_results
         search_method = state.get('search_method', '')
 
+        # Off-topic guard: semantic search always returns the k nearest items,
+        # even for unrelated questions. If the query isn't baking-related AND
+        # shares no keyword with the hits, do NOT recommend those products —
+        # answer flexibly with the LLM instead.
+        semantic = search_method in ('vector', 'hybrid_vector')
+        off_topic = (semantic
+                     and not _is_baking_related(question, llm, ollama_available)
+                     and not _shares_keyword(question, products))
+        if off_topic:
+            steps.append("🚫 Off-topic query — skipped semantic product recommendations")
+            answer = _flexible_answer(question, on_topic=False, llm=llm,
+                                      ollama_available=ollama_available)
+            _remember_learned(question, answer)
+            state['answer'] = answer
+            state['reasoning_steps'] = steps
+            update_conversation_context(session_id, question, answer, [])
+            return state
+
         # Show filter summary for SQL results
         filters = state.get('filters_applied', {})
         filter_note = ""
@@ -619,55 +802,24 @@ def generate_answer(state: Dict[str, Any], llm=None, ollama_available: bool = Fa
         )
 
         steps.append(f"✅ Listed {len(products)} products (method: {search_method})")
+        _track_patterns(question, products)   # learning: query → products
         state['answer'] = answer
         state['reasoning_steps'] = steps
         update_conversation_context(session_id, question, answer, products)
         return state
 
-    # ── LLM fallback ──────────────────────────────────────────────────────
-    available_products = state.get('available_products_context', [])
+    # ── No relevant product found → flexible LLM answer (NEVER dump catalog) ─
+    # If the question is baking-related, answer it helpfully with the LLM.
+    # If it's off-topic, politely steer back to baking — no product recommendations.
+    on_topic = _is_baking_related(question, llm, ollama_available)
+    answer = _flexible_answer(question, on_topic, llm, ollama_available)
+    _remember_learned(question, answer)   # learning: persist informational answer
 
-    if ollama_available and llm and available_products:
-        products_list = '\n'.join([f"- {p}" for p in available_products[:15]])
-        prompt = (
-            f'You are the King Arthur Baking Assistant. The user asked: "{question}"\n\n'
-            f"Here are some products we have:\n{products_list}\n\n"
-            "Please respond helpfully and suggest similar products if applicable. Be friendly."
-        )
-        try:
-            llm_response = llm.invoke(prompt)
-            answer = (
-                f"{llm_response}\n\n---\n\n"
-                f"**Products you might be interested in:**\n"
-                f"{', '.join(available_products)}\n\n"
-                "Is there a specific product I can help you with?"
-            )
-            steps.append("✅ Used LLM fallback with product context")
-            state['answer'] = answer
-            state['reasoning_steps'] = steps
-            return state
-        except Exception as e:
-            logger.error(f"LLM error: {e}")
-
-    # ── Ultimate fallback ─────────────────────────────────────────────────
-    if available_products:
-        answer = (
-            f"I couldn't find specific information about \"{question}\".\n\n"
-            f"**Here are some products I know about:**\n"
-            f"{', '.join(available_products[:8])}\n\n"
-            "Could you rephrase your question or ask about a specific product?"
-        )
-    else:
-        answer = (
-            "I'm the King Arthur Baking assistant. I can help you find baking mixes, "
-            "check ingredients, and provide instructions.\n\n"
-            "**Try asking me:**\n"
-            "• \"What gluten-free brownie mixes do you have?\"\n"
-            "• \"Show me products under $10\"\n\n"
-            "What would you like to know about King Arthur Baking products?"
-        )
-
-    steps.append("⚠️ Used ultimate fallback response")
+    steps.append(
+        "✅ Flexible LLM answer (no relevant product match)"
+        if on_topic else "🚫 Off-topic — redirected to baking topics"
+    )
     state['answer'] = answer
     state['reasoning_steps'] = steps
+    update_conversation_context(session_id, question, answer, [])
     return state

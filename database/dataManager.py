@@ -394,8 +394,62 @@ def init_learning_tables():
         )
     ''')
 
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS chat_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            session_id TEXT,
+            question TEXT,
+            answer TEXT,
+            intent TEXT,
+            product_count INTEGER DEFAULT 0,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+
     conn.commit()
     print("✅ Learning tables initialized")
+
+
+def save_chat_history(session_id: str, question: str, answer: str,
+                      intent: str = "", product_count: int = 0):
+    """Persist a single chat turn so history survives restarts and feeds learning."""
+    conn = get_connection()
+    cursor = conn.cursor()
+    # Defensive: create the table if an older DB predates it.
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS chat_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            session_id TEXT,
+            question TEXT,
+            answer TEXT,
+            intent TEXT,
+            product_count INTEGER DEFAULT 0,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    cursor.execute('''
+        INSERT INTO chat_history (session_id, question, answer, intent, product_count)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (session_id, question, answer, intent, product_count))
+    conn.commit()
+
+
+def get_chat_history(session_id: Optional[str] = None, limit: int = 50) -> List[Dict[str, Any]]:
+    """Return recent chat turns (optionally for one session), oldest-first."""
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        if session_id:
+            cursor.execute('''
+                SELECT * FROM chat_history WHERE session_id = ?
+                ORDER BY id DESC LIMIT ?
+            ''', (session_id, limit))
+        else:
+            cursor.execute('SELECT * FROM chat_history ORDER BY id DESC LIMIT ?', (limit,))
+    except sqlite3.OperationalError:
+        return []   # table doesn't exist yet
+    rows = [dict(r) for r in cursor.fetchall()]
+    return list(reversed(rows))
 
 
 def init_sqlite():

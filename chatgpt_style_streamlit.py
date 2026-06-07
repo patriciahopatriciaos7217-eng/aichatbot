@@ -690,12 +690,39 @@ def main():
 
     elif page == "📊 Analytics":
         st.markdown("## 📊 Analytics")
+        from database.dataManager import get_learning_stats, get_chat_history
+
         try:
             count = get_product_count()
-            st.metric("Total Products", count)
+        except Exception:
+            count = 0
+        try:
+            stats = get_learning_stats()
+        except Exception:
+            stats = {}
+
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Total Products", count)
+        c2.metric("📚 Learned Answers", stats.get("learned_responses", 0))
+        c3.metric("🔁 Search Patterns", stats.get("search_patterns", 0))
+        c4.metric("👍 Positive Feedback", stats.get("positive_feedback", 0))
+
+        st.markdown("### 🕓 Recent Chat History")
+        try:
+            history = get_chat_history(limit=30)
         except Exception as e:
-            st.error(f"Could not load analytics: {e}")
-        st.info("Analytics dashboard coming soon...")
+            history = []
+            st.error(f"Could not load chat history: {e}")
+
+        if history:
+            for turn in reversed(history):   # newest first
+                ts = turn.get("created_at", "")
+                intent = turn.get("intent", "")
+                with st.expander(f"🧑 {turn.get('question', '')[:80]}  ·  _{intent}_  ·  {ts}"):
+                    st.markdown(f"**You:** {turn.get('question', '')}")
+                    st.markdown(f"**Bot:** {turn.get('answer', '')}")
+        else:
+            st.info("No chat history saved yet. Start chatting to build history.")
 
     elif page == "⚙️ Settings":
         st.markdown("## ⚙️ Settings")
