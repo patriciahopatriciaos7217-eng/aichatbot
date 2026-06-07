@@ -177,6 +177,26 @@ def close_connection():
         print("✅ Database connection closed")
 
 
+def _row_to_product(row) -> Dict[str, Any]:
+    """Convert a SQLite row into a product dict with a real image_list.
+
+    IMPORTANT: the products table has an unused 'image_list' ARRAY column, so
+    the joined images MUST be aliased as 'image_urls' (not 'image_list') —
+    otherwise sqlite3.Row['image_list'] returns the always-NULL table column
+    (it shadows the alias) and images are silently lost. We read 'image_urls'
+    here and overwrite image_list with the split list.
+    """
+    product = dict(row)
+    concat = product.pop('image_urls', None)
+    product['image_list'] = concat.split(',') if concat else []
+    return product
+
+
+def _rows_to_products(rows) -> List[Dict[str, Any]]:
+    """Convert a list of SQLite rows into product dicts (see _row_to_product)."""
+    return [_row_to_product(row) for row in rows]
+
+
 # ============================================================
 # KEYWORD EXTRACTION & SMART SEARCH
 # ============================================================
@@ -267,7 +287,7 @@ def search_with_keywords(keywords: List[str], limit: int = 10) -> List[Dict[str,
     where_clause = " OR ".join(conditions)
     query = f'''
         SELECT DISTINCT p.*,
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
         WHERE {where_clause}
@@ -276,10 +296,7 @@ def search_with_keywords(keywords: List[str], limit: int = 10) -> List[Dict[str,
     '''
     params.append(limit * 3)
     cursor.execute(query, params)
-    results = [dict(row) for row in cursor.fetchall()]
-
-    for r in results:
-        r['image_list'] = r['image_list'].split(',') if r.get('image_list') else []
+    results = _rows_to_products(cursor.fetchall())
 
     import re
     for r in results:
@@ -401,7 +418,10 @@ def init_sqlite():
             nutrition_link TEXT,
             review INTEGER,
             url TEXT,
-            image_list ARRAY,
+            -- NOTE: do NOT add an 'image_list' column here. Images live in the
+            -- product_images table and are joined in as GROUP_CONCAT aliased
+            -- 'image_urls'. A products.image_list column would shadow that
+            -- alias in sqlite3.Row lookups and make all images disappear.
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
@@ -739,7 +759,7 @@ def get_all_products(limit: Optional[int] = None) -> List[Dict[str, Any]]:
 
     query = '''
         SELECT p.*, 
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
     '''
@@ -750,17 +770,7 @@ def get_all_products(limit: Optional[int] = None) -> List[Dict[str, Any]]:
 
     cursor.execute(query)
 
-    products = []
-    for row in cursor.fetchall():
-        product = dict(row)
-        # Convert image_list from comma-separated string back to list
-        if product.get('image_list'):
-            product['image_list'] = product['image_list'].split(',')
-        else:
-            product['image_list'] = []
-        products.append(product)
-
-    return products
+    return _rows_to_products(cursor.fetchall())
 
 
 def get_product_count() -> int:
@@ -780,7 +790,7 @@ def search_sqlite(search_term: str, limit: int = 10) -> List[Dict[str, Any]]:
     print(search_pattern)
     cursor.execute('''
         SELECT p.*, 
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
         WHERE p.name LIKE ? 
@@ -791,16 +801,7 @@ def search_sqlite(search_term: str, limit: int = 10) -> List[Dict[str, Any]]:
         LIMIT ?
     ''', (search_pattern, search_pattern, search_pattern, search_pattern, limit))
 
-    products = []
-    for row in cursor.fetchall():
-        product = dict(row)
-        if product.get('image_list'):
-            product['image_list'] = product['image_list'].split(',')
-        else:
-            product['image_list'] = []
-        products.append(product)
-    print("products", cursor.fetchall())
-    return products
+    return _rows_to_products(cursor.fetchall())
 
 
 def ensure_string(query):
@@ -874,7 +875,7 @@ def fast_search(query: str, k: int = 5) -> List[Dict]:
 
     cursor.execute('''
         SELECT p.*, 
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
         WHERE p.name LIKE ? OR p.description LIKE ? OR p.ingredients LIKE ?
@@ -882,37 +883,22 @@ def fast_search(query: str, k: int = 5) -> List[Dict]:
         LIMIT ?
     ''', (f'%{query}%', f'%{query}%', f'%{query}%', k))
 
-    results = []
-    for row in cursor.fetchall():
-        product = dict(row)
-        if product.get('image_list'):
-            product['image_list'] = product['image_list'].split(',')
-        else:
-            product['image_list'] = []
-        results.append(product)
+    results = _rows_to_products(cursor.fetchall())
 
     if not results and len(query) > 3:
         words = query.split()[:2]
         for word in words:
             if len(word) > 3:
                 cursor.execute('''
-                    SELECT p.*, 
-                           GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+                    SELECT p.*,
+                           GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
                     FROM products p
                     LEFT JOIN product_images pi ON p.id = pi.product_id
                     WHERE p.name LIKE ?
                     GROUP BY p.id
                     LIMIT ?
                 ''', (f'%{word}%', k))
-                results = []
-                for row in cursor.fetchall():
-                    product = dict(row)
-                    if product.get('image_list'):
-                        product['image_list'] = product['image_list'].split(
-                            ',')
-                    else:
-                        product['image_list'] = []
-                    results.append(product)
+                results = _rows_to_products(cursor.fetchall())
                 if results:
                     break
 
@@ -926,7 +912,7 @@ def get_product_by_code(product_code: str) -> Optional[Dict[str, Any]]:
 
     cursor.execute('''
         SELECT p.*, 
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
         WHERE p.product_code = ?
@@ -936,12 +922,7 @@ def get_product_by_code(product_code: str) -> Optional[Dict[str, Any]]:
     row = cursor.fetchone()
 
     if row:
-        product = dict(row)
-        if product.get('image_list'):
-            product['image_list'] = product['image_list'].split(',')
-        else:
-            product['image_list'] = []
-        return product
+        return _row_to_product(row)
 
     return None
 
@@ -953,7 +934,7 @@ def get_product_by_name(name: str) -> Optional[Dict[str, Any]]:
 
     cursor.execute('''
         SELECT p.*, 
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
         WHERE p.name = ?
@@ -963,12 +944,7 @@ def get_product_by_name(name: str) -> Optional[Dict[str, Any]]:
     row = cursor.fetchone()
 
     if row:
-        product = dict(row)
-        if product.get('image_list'):
-            product['image_list'] = product['image_list'].split(',')
-        else:
-            product['image_list'] = []
-        return product
+        return _row_to_product(row)
 
     return None
 
@@ -988,7 +964,7 @@ def get_product_with_images(product_id: int) -> Optional[Dict[str, Any]]:
 
     cursor.execute('''
         SELECT p.*, 
-               GROUP_CONCAT(DISTINCT pi.image_url) as image_list
+               GROUP_CONCAT(DISTINCT pi.image_url) as image_urls
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
         WHERE p.id = ?
@@ -998,12 +974,7 @@ def get_product_with_images(product_id: int) -> Optional[Dict[str, Any]]:
     row = cursor.fetchone()
 
     if row:
-        product = dict(row)
-        if product.get('image_list'):
-            product['image_list'] = product['image_list'].split(',')
-        else:
-            product['image_list'] = []
-        return product
+        return _row_to_product(row)
 
     return None
 
