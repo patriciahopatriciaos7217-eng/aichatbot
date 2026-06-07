@@ -135,6 +135,14 @@ _BAKING_TERMS = {
     'product', 'products', 'price', 'stock', 'rating',
 }
 
+# Word-boundary matcher (longest terms first). \b at the start matches plurals
+# ("cake" → "cakes") without false positives mid-word ("egg" in "beggar").
+_BAKING_PATTERN = re.compile(
+    r'\b(' + '|'.join(sorted((re.escape(t) for t in _BAKING_TERMS),
+                             key=len, reverse=True)) + r')',
+    re.IGNORECASE,
+)
+
 
 def _is_baking_related(question: str, llm=None, ollama_available: bool = False) -> bool:
     """Decide whether a question is about baking / mixes / food.
@@ -148,7 +156,7 @@ def _is_baking_related(question: str, llm=None, ollama_available: bool = False) 
         return True
 
     # Clear baking vocabulary → on-topic (also avoids a needless LLM call).
-    if any(term in q for term in _BAKING_TERMS):
+    if _BAKING_PATTERN.search(q):
         return True
 
     if ollama_available and llm:
@@ -169,21 +177,24 @@ def _is_baking_related(question: str, llm=None, ollama_available: bool = False) 
 
 
 def _shares_keyword(question: str, products: List[Dict]) -> bool:
-    """True if the question shares a meaningful word with any returned product.
+    """True if the question shares a specific word with any returned product NAME.
 
-    Used as a safety net: if a semantic hit overlaps the query, it's probably a
-    real match, so we must NOT discard it as 'off-topic' (matters most when the
-    LLM is unavailable and the relevance heuristic is weak).
+    Safety net so a genuine product query isn't discarded as 'off-topic' (matters
+    when the LLM is down). NAME only — matching descriptions causes false
+    positives because product prose contains generic words like "company",
+    "make", "love". Generic catalog words are also excluded.
     """
     stop = {'the', 'and', 'you', 'have', 'what', 'for', 'with', 'can', 'are',
             'does', 'show', 'tell', 'about', 'this', 'that', 'your', 'from',
-            'get', 'any', 'some', 'want', 'need', 'make', 'how', 'where'}
+            'get', 'any', 'some', 'want', 'need', 'make', 'how', 'where',
+            'mix', 'mixes', 'king', 'arthur', 'baking', 'company', 'product',
+            'products', 'love', 'good', 'best', 'new', 'please'}
     q_tokens = {w for w in re.findall(r'[a-z]{3,}', (question or '').lower())} - stop
     if not q_tokens:
         return False
     for p in products[:5]:
-        text = f"{p.get('name', '')} {p.get('description', '')}".lower()
-        if any(t in text for t in q_tokens):
+        name = (p.get('name', '') or '').lower()
+        if any(t in name for t in q_tokens):
             return True
     return False
 
@@ -746,23 +757,25 @@ def generate_answer(state: Dict[str, Any], llm=None, ollama_available: bool = Fa
         products = search_results
         search_method = state.get('search_method', '')
 
-        # Off-topic guard: semantic search always returns the k nearest items,
-        # even for unrelated questions. If the query isn't baking-related AND
-        # shares no keyword with the hits, do NOT recommend those products —
-        # answer flexibly with the LLM instead.
-        semantic = search_method in ('vector', 'hybrid_vector')
-        off_topic = (semantic
-                     and not _is_baking_related(question, llm, ollama_available)
-                     and not _shares_keyword(question, products))
-        if off_topic:
-            steps.append("🚫 Off-topic query — skipped semantic product recommendations")
-            answer = _flexible_answer(question, on_topic=False, llm=llm,
-                                      ollama_available=ollama_available)
-            _remember_learned(question, answer)
-            state['answer'] = answer
-            state['reasoning_steps'] = steps
-            update_conversation_context(session_id, question, answer, [])
-            return state
+        # Off-topic guard: only structured SQL queries (price/rating/count) are
+        # guaranteed product-intent. For every OTHER method, if the question
+        # isn't baking-related AND shares no product-name keyword with the hits,
+        # do NOT recommend products — give a flexible answer instead. (Search,
+        # especially semantic, returns the k nearest mixes even for unrelated
+        # questions, which is what caused off-topic product recommendations.)
+        explicit_product_query = (search_method == 'sql')
+        if not explicit_product_query:
+            on_topic = (_is_baking_related(question, llm, ollama_available)
+                        or _shares_keyword(question, products))
+            if not on_topic:
+                steps.append("🚫 Off-topic query — gave flexible answer instead of products")
+                answer = _flexible_answer(question, on_topic=False, llm=llm,
+                                          ollama_available=ollama_available)
+                _remember_learned(question, answer)
+                state['answer'] = answer
+                state['reasoning_steps'] = steps
+                update_conversation_context(session_id, question, answer, [])
+                return state
 
         # Show filter summary for SQL results
         filters = state.get('filters_applied', {})

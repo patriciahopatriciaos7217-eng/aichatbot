@@ -467,33 +467,34 @@ def show_product_details(product: dict):
 
 
 def show_product_dialog(product: dict):
-    """Display product details in a dialog-like container"""
+    """Select a product to view, then rerun so the detail panel renders.
+
+    IMPORTANT: detail buttons live inside blocks that only run on the click that
+    produced them. Rendering the detail inline here would vanish on the next
+    rerun. Instead we stash the selection and let render_selected_product()
+    (called at the top of each page) display it on every rerun.
+    """
     st.session_state.selected_product = product
-    st.session_state.show_product_modal = True
-    render_product_modal()
+    st.rerun()
 
 
-def render_product_modal():
-    """Render the product modal if active"""
-    if st.session_state.get('show_product_modal', False) and st.session_state.get('selected_product'):
-        product = st.session_state.selected_product
+def render_selected_product():
+    """Render the currently-selected product's details, if any.
 
-        with st.container():
-            st.markdown("---")
-            st.markdown("## 📦 Product Details")
+    Call this at the top of any page that has 'View Details' buttons so the
+    panel persists across reruns until the user closes it.
+    """
+    product = st.session_state.get('selected_product')
+    if not product:
+        return
 
-            col_close, _ = st.columns([1, 10])
-            with col_close:
-                if st.button("❌ Close", key="close_modal"):
-                    st.session_state.show_product_modal = False
-                    st.session_state.selected_product = None
-                    st.rerun()
+    st.markdown("## 📦 Product Details")
+    if st.button("❌ Close", key="close_product_details"):
+        st.session_state.selected_product = None
+        st.rerun()
 
-            st.markdown("---")
-
-            show_product_details(product)
-
-            st.markdown("---")
+    show_product_details(product)
+    st.markdown("---")
 
 
 # ============================================================
@@ -555,6 +556,9 @@ def render_chat_interface():
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
+
+    # Detail panel (persists across reruns until closed)
+    render_selected_product()
 
     # Display chat messages from history — including any product cards so the
     # combined chat + product-search experience survives reruns.
@@ -655,35 +659,40 @@ def main():
             search_btn = st.button("🔍 Search", use_container_width=True)
         with col2:
             smart_search_btn = st.button("🧠 Smart Search", use_container_width=True)
+
+        # Run the search ONLY on button press, but store results in session_state
+        # so they (and their View Details buttons) survive the rerun triggered by
+        # clicking a detail button.
         if search_btn and search_query:
             with st.spinner("Searching..."):
                 try:
-                    results = hybrid_search(search_query)
-                    if results:
-                        st.success(f"Found {len(results)} products")
-                        for idx, product in enumerate(results, 1):
-                            display_product_card(product, idx)
-                            if st.button(f"🔍 View Details", key=f"search_details_{idx}"):
-                                print("detail", product)
-                                show_product_dialog(product)
-                    else:
-                        st.info("No products found matching your query.")
+                    st.session_state.product_search_results = hybrid_search(search_query)
+                    st.session_state.selected_product = None
                 except Exception as e:
+                    st.session_state.product_search_results = []
                     st.error(f"Search error: {e}")
-        if smart_search_btn and search_query:
+        elif smart_search_btn and search_query:
             with st.spinner("Smart searching..."):
                 try:
-                    results = search_products_smart(search_query)
-                    if results:
-                        st.success(f"Found {len(results)} products (smart search)")
-                        for idx, product in enumerate(results, 1):
-                            display_product_card(product, idx)
-                            if st.button(f"🔍 View Details", key=f"smart_details_{idx}"):
-                                show_product_dialog(product)
-                    else:
-                        st.info("No products found with smart search.")
+                    st.session_state.product_search_results = search_products_smart(search_query)
+                    st.session_state.selected_product = None
                 except Exception as e:
+                    st.session_state.product_search_results = []
                     st.error(f"Smart search error: {e}")
+
+        # Detail panel (persists across reruns until closed)
+        render_selected_product()
+
+        # Render stored results independently of the button press
+        results = st.session_state.get("product_search_results", [])
+        if results:
+            st.success(f"Found {len(results)} products")
+            for idx, product in enumerate(results, 1):
+                display_product_card(product, idx)
+                if st.button("🔍 View Details", key=f"search_details_{idx}"):
+                    show_product_dialog(product)
+        elif search_btn or smart_search_btn:
+            st.info("No products found matching your query.")
 
     elif page == "🧠 LangGraph":
         render_langgraph_view()
