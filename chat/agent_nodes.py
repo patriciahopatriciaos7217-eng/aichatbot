@@ -59,7 +59,62 @@ def extract_simple_keywords(question: str) -> str:
     ]
     words = question.lower().split()
     keywords = [w for w in words if w not in common_words and len(w) > 2]
-    return ' '.join(words) if words else question
+    # Return the FILTERED keywords (not the raw sentence) so callers don't
+    # end up doing a single LIKE '%whole question%' match that never hits.
+    return ' '.join(keywords) if keywords else question
+
+
+def _product_from_chroma_meta(meta: Dict[str, Any]) -> Dict[str, Any]:
+    """Build a product dict from ChromaDB metadata, decoding the images field.
+
+    Images are stored in metadata as a JSON-encoded string (ChromaDB rejects
+    list-valued metadata). Handle both the new JSON form and any legacy list.
+    """
+    import json
+    images = meta.get('images', [])
+    if isinstance(images, str):
+        try:
+            images = json.loads(images)
+        except Exception:
+            images = [images] if images else []
+    if not isinstance(images, list):
+        images = []
+    return {
+        'name': meta.get('name', ''),
+        'price': meta.get('price', ''),
+        'description': meta.get('description', ''),
+        'ingredients': meta.get('ingredients', ''),
+        'rating': meta.get('rating', ''),
+        'url': meta.get('url', ''),
+        'product_code': meta.get('product_code', ''),
+        'image_list': images,
+    }
+
+
+def _enrich_chroma_results(results: List[Dict]) -> List[Dict[str, Any]]:
+    """Turn ChromaDB hits into full product dicts, guaranteeing image_list.
+
+    Prefers the richer SQLite row (joined product_images) and falls back to the
+    embedded ChromaDB metadata so a hit is never dropped and images are never
+    lost — this is why "vector search returned no images" used to happen.
+    """
+    from database.dataManager import search_sqlite
+    enhanced: List[Dict[str, Any]] = []
+    for result in results:
+        meta = result.get('metadata', {}) or {}
+        name = meta.get('name')
+        product = None
+        if name:
+            details = search_sqlite(name, 1)
+            if details:
+                product = details[0]
+        if product is None:
+            product = _product_from_chroma_meta(meta)
+        # Guarantee images: if SQLite row had none, recover them from metadata.
+        if not product.get('image_list'):
+            product['image_list'] = _product_from_chroma_meta(meta).get('image_list', [])
+        enhanced.append(product)
+    return enhanced
 
 
 # ============================================================
@@ -287,15 +342,19 @@ def classify_intent(state: Dict[str, Any]) -> Dict[str, Any]:
 # ============================================================
 
 def keyword_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
-    """Pure keyword search using SQLite (fast, exact matches)"""
-    from database.dataManager import search_sqlite, get_all_product_names
+    """Keyword search using SQLite with per-keyword OR matching + ranking.
+
+    Uses search_products_smart (extracts keywords, OR-matches each across
+    name/description/ingredients/details, ranks by relevance) instead of a
+    single LIKE on the whole sentence — the old approach rarely matched.
+    """
+    from database.dataManager import search_products_smart, get_all_product_names
 
     question = state.get('question', '')
     steps = state.get('reasoning_steps', []).copy()
     logger.info(f"🔍 Keyword searching for: {question}")
 
-    keywords = extract_simple_keywords(question)
-    results = search_sqlite(keywords, limit=5)
+    results = search_products_smart(question, limit=5)
 
     if results:
         steps.append(f"✅ Keyword search found {len(results)} products")
@@ -322,7 +381,7 @@ def keyword_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
 
 def vector_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
     """Pure vector search using ChromaDB (semantic, meaning-based)"""
-    from database.dataManager import search_chromadb, get_all_product_names, search_sqlite
+    from database.dataManager import search_chromadb, get_all_product_names
 
     question = state.get('question', '')
     steps = state.get('reasoning_steps', []).copy()
@@ -331,13 +390,7 @@ def vector_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
     results = search_chromadb(question, k=5)
 
     if results:
-        enhanced = []
-        for result in results:
-            product_name = result['metadata'].get('name')
-            if product_name:
-                details = search_sqlite(product_name, 1)
-                if details:
-                    enhanced.append(details[0])
+        enhanced = _enrich_chroma_results(results)
 
         steps.append(f"✅ Vector search found {len(enhanced)} semantically similar products")
         return {
@@ -372,13 +425,7 @@ def hybrid_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
     # Step 1: vector
     vector_results = search_chromadb(question, k=5)
     if vector_results:
-        enhanced = []
-        for result in vector_results:
-            product_name = result['metadata'].get('name')
-            if product_name:
-                details = search_sqlite(product_name, 1)
-                if details:
-                    enhanced.append(details[0])
+        enhanced = _enrich_chroma_results(vector_results)
 
         steps.append(f"✅ Hybrid (vector) found {len(enhanced)} products")
         return {
@@ -390,9 +437,9 @@ def hybrid_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
             'reasoning_steps': steps,
         }
 
-    # Step 2: keyword fallback
-    keywords = extract_simple_keywords(question)
-    keyword_results = search_sqlite(keywords, limit=5)
+    # Step 2: keyword fallback (per-keyword OR matching + ranking)
+    from database.dataManager import search_products_smart
+    keyword_results = search_products_smart(question, limit=5)
     if keyword_results:
         steps.append(f"✅ Hybrid (keyword) found {len(keyword_results)} products")
         return {

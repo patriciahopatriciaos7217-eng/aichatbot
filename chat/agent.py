@@ -55,7 +55,9 @@ def ask_agent(question: str, session_id: str = "default") -> dict:
         
         # Update conversation context
         products = final_state.get('suggested_products', [])
-        products_data = final_state.get('found_products', [])
+        # NOTE: search nodes write to the unified 'search_results' key
+        # (was 'found_products' before the migration — that key is never set).
+        products_data = final_state.get('search_results', [])
         update_conversation_context(session_id, question, final_state.get('answer', ''), products_data)
         
         return {

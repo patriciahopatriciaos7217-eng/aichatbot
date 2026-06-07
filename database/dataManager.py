@@ -534,7 +534,9 @@ def store_products(products: List[Dict]) -> int:
                 "review": product.get('review', ''),
                 "ingredients": product.get('ingredients', ''),
                 "url": product.get('url', ''),
-                "images": product.get("image_list", []),
+                # ChromaDB metadata must be str/int/float/bool — a raw list
+                # makes .add() fail (so nothing got stored). JSON-encode it.
+                "images": json.dumps(product.get("image_list", [])),
                 "product_code": product_code,
                 "db_id": product_id
             })

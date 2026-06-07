@@ -386,7 +386,6 @@ def image_slider(image_list: list, product_name: str = ""):
 
 def show_product_details(product: dict):
     """Display product details in an expander or modal window"""
-    print(ingredients)
     name = product.get('name', 'Product Details')
     price = product.get('price', 'N/A')
     description = product.get('description', 'No description')
@@ -557,10 +556,19 @@ def render_chat_interface():
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-    # Display chat messages from history
-    for message in st.session_state.messages:
+    # Display chat messages from history — including any product cards so the
+    # combined chat + product-search experience survives reruns.
+    for i, message in enumerate(st.session_state.messages):
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+            products = message.get("products", [])
+            if products:
+                st.markdown("---")
+                st.markdown("### 📦 Related Products")
+                for j, product in enumerate(products, 1):
+                    display_product_card(product, j)
+                    if st.button("🔍 View Details", key=f"hist_{i}_{j}"):
+                        show_product_dialog(product)
 
     # Accept user input at the bottom
     if prompt := st.chat_input("Ask me anything about baking..."):
@@ -598,8 +606,11 @@ def render_chat_interface():
                                 if st.button(f"🔍 View Details", key=f"details_{idx}"):
                                     show_product_dialog(product)
 
-                    # Add assistant response to chat history (store only the answer text)
-                    st.session_state.messages.append({"role": "assistant", "content": answer})
+                    # Add assistant response to chat history, keeping the product
+                    # results so cards + images re-render on later reruns.
+                    st.session_state.messages.append(
+                        {"role": "assistant", "content": answer, "products": products_data}
+                    )
 
                 except Exception as e:
                     error_msg = f"❌ Error: {str(e)}"
