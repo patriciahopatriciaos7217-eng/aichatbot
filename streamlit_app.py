@@ -58,6 +58,7 @@ st.markdown("""
         border-radius: 10px;
         margin: 10px 0;
         border-left: 4px solid #ff6b35;
+        word-break: break-all;
     }
     
     /* Match badge */

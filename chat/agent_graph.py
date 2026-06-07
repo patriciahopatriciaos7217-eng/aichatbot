@@ -271,7 +271,7 @@ def route_search_strategy(state: Dict[str, Any]) -> str:
     # 2. Short / detail-lookup queries → keyword (fast exact match)
     detail_words = ["detail", "nutrition",
                     "ingredients", "contains", "url"]
-    if len(question.split()) <= 2 or any(w in question for w in detail_words):
+    if any(w in question for w in detail_words):
         return "keyword_search"
 
     # 3. Recommendation / similarity queries → vector

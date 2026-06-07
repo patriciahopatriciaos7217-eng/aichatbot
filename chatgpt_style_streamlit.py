@@ -85,6 +85,7 @@ st.markdown("""
         display: flex;
         flex-direction: column;
         gap: 8px;
+        word-break: break-all;
     }
 
     .product-card-title {
@@ -399,101 +400,106 @@ def show_product_details(product: dict):
     product_code = product.get('product_code', '')
     details = product.get('details', '')
 
-    # Create an expander for product details (this acts like a modal)
-    with st.expander(f"🔍 {name} - Click to view details", expanded=True):
-        # Product header
-        col1, col2 = st.columns([2, 1])
+    # Product header
+    col1, col2 = st.columns([2, 1])
 
-        with col1:
-            st.markdown(f"## 🍰 {name}")
+    with col1:
+        st.markdown(f"## 🍰 {name}")
 
-            # Product metadata
-            if product_code:
-                st.markdown(f"**🆔 Code:** {product_code}")
+        if product_code:
+            st.markdown(f"**🆔 Code:** {product_code}")
 
-            st.markdown(f"**💰 Price:** {price}")
+        st.markdown(f"**💰 Price:** {price}")
 
-            if review:
-                st.markdown(f"**⭐ Reviews:** {review}")
+        if review:
+            st.markdown(f"**⭐ Reviews:** {review}")
 
-            if details:
-                st.markdown(f"**🍔 Detail Info:**")
-                st.markdown(f"{details}")
+        if details:
+            st.markdown(f"**🍔 Detail Info:**")
+            st.markdown(f"{details}")
 
-        with col2:
-            if image_list and len(image_list) > 0:
-                st.image(image_list[0], use_container_width=True, caption=name[:30])
+    with col2:
+        if image_list and len(image_list) > 0:
+            st.image(image_list[0], use_container_width=True, caption=name[:30])
 
-        st.divider()
+    st.divider()
 
-        # Image slider (if multiple images)
-        if len(image_list) > 1:
-            st.markdown("### 📸 Product Images")
-            image_slider(image_list, name)
-        elif len(image_list) == 1:
-            st.markdown("### 📸 Product Image")
-            st.image(image_list[0], use_container_width=True)
+    # Image slider (if multiple images)
+    if len(image_list) > 1:
+        st.markdown("### 📸 Product Images")
+        image_slider(image_list, name)
+    elif len(image_list) == 1:
+        st.markdown("### 📸 Product Image")
+        st.image(image_list[0], use_container_width=True)
 
-        st.divider()
+    st.divider()
 
-        # Product details tabs
-        tab1, tab2, tab3, tab4 = st.tabs(["📝 Description", "🥗 Ingredients", "⚠️ Contains", "👩‍🍳 Instructions"])
+    # Product details tabs
+    tab1, tab2, tab3, tab4 = st.tabs(["📝 Description", "🥗 Ingredients", "⚠️ Contains", "👩‍🍳 Instructions"])
 
-        with tab1:
-            st.write(description)
+    with tab1:
+        st.write(description)
 
-        with tab2:
-            st.write(ingredients)
+    with tab2:
+        st.write(ingredients)
 
-        with tab3:
-            st.write(contains)
+    with tab3:
+        st.write(contains)
 
-        with tab4:
-            if instructions:
-                st.write(instructions)
-            else:
-                st.info("No specific instructions available. Please check the product package.")
+    with tab4:
+        if instructions:
+            st.write(instructions)
+        else:
+            st.info("No specific instructions available. Please check the product package.")
 
-        # Nutrition link
-        if nutrition_link:
-            st.markdown("---")
-            st.markdown(f"### 📊 Nutrition Information")
-            st.markdown(f"[Click here to view full nutrition details]({nutrition_link})")
+    # Nutrition link
+    if nutrition_link:
+        st.markdown("---")
+        st.markdown(f"### 📊 Nutrition Information")
+        st.markdown(f"[Click here to view full nutrition details]({nutrition_link})")
 
-        if url:
-            st.markdown("---")
-            st.markdown(f"### 🔗 Product Link")
-            st.markdown(f"[Click here to view on website]({url})")
+    if url:
+        st.markdown("---")
+        st.markdown(f"### 🔗 Product Link")
+        st.markdown(f"[Click here to view on website]({url})")
 
 
-def show_product_dialog(product: dict):
-    """Select a product to view, then rerun so the detail panel renders.
+def show_product_dialog(product: dict, detail_key: str):
+    """Select a product to view, then rerun so the detail panel renders inline.
 
-    IMPORTANT: detail buttons live inside blocks that only run on the click that
-    produced them. Rendering the detail inline here would vanish on the next
-    rerun. Instead we stash the selection and let render_selected_product()
-    (called at the top of each page) display it on every rerun.
+    Stores the product AND the key of the card it belongs to, so the detail
+    panel can be rendered right below that card instead of at the top.
     """
     st.session_state.selected_product = product
-    st.rerun()
+    st.session_state.selected_product_key = detail_key
 
 
-def render_selected_product():
-    """Render the currently-selected product's details, if any.
+def render_selected_product_inline(expected_key: str):
+    """Render the selected product's detail panel if it belongs to this card slot.
 
-    Call this at the top of any page that has 'View Details' buttons so the
-    panel persists across reruns until the user closes it.
+    Called right after each product card so the detail appears directly below it.
+    Uses an expander so the user can collapse/expand the detail panel.
     """
     product = st.session_state.get('selected_product')
-    if not product:
+    active_key = st.session_state.get('selected_product_key')
+    if not product or active_key != expected_key:
         return
 
-    st.markdown("## 📦 Product Details")
-    if st.button("❌ Close", key="close_product_details"):
-        st.session_state.selected_product = None
-        st.rerun()
+    name = product.get('name', 'Product Details')
+    expander_key = f"detail_expander_{expected_key}"
 
-    show_product_details(product)
+    # Track expanded state in session_state
+    if expander_key not in st.session_state:
+        st.session_state[expander_key] = True
+
+    with st.expander(f"📦 {name} — Product Details", expanded=st.session_state[expander_key]):
+        if st.button("❌ Close", key=f"close_{expected_key}"):
+            st.session_state.selected_product = None
+            st.session_state.selected_product_key = None
+            st.session_state[expander_key] = True
+            st.rerun()
+
+        show_product_details(product)
     st.markdown("---")
 
 
@@ -557,9 +563,6 @@ def render_chat_interface():
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-    # Detail panel (persists across reruns until closed)
-    render_selected_product()
-
     # Display chat messages from history — including any product cards so the
     # combined chat + product-search experience survives reruns.
     for i, message in enumerate(st.session_state.messages):
@@ -570,9 +573,13 @@ def render_chat_interface():
                 st.markdown("---")
                 st.markdown("### 📦 Related Products")
                 for j, product in enumerate(products, 1):
+                    detail_key = f"hist_{i}_{j}"
                     display_product_card(product, j)
-                    if st.button("🔍 View Details", key=f"hist_{i}_{j}"):
-                        show_product_dialog(product)
+                    if st.button("🔍 View Details", key=detail_key):
+                        show_product_dialog(product, detail_key)
+                        st.rerun()
+                    # Render detail panel inline below THIS card
+                    render_selected_product_inline(detail_key)
 
     # Accept user input at the bottom
     if prompt := st.chat_input("Ask me anything about baking..."):
@@ -605,10 +612,14 @@ def render_chat_interface():
                         st.markdown("---")
                         st.markdown("### 📦 Related Products")
                         for idx, product in enumerate(products_data, 1):
+                            detail_key = f"details_{idx}"
                             with st.container():
                                 display_product_card(product, idx)
-                                if st.button(f"🔍 View Details", key=f"details_{idx}"):
-                                    show_product_dialog(product)
+                                if st.button(f"🔍 View Details", key=detail_key):
+                                    show_product_dialog(product, detail_key)
+                                    st.rerun()
+                                # Render detail panel inline below THIS card
+                                render_selected_product_inline(detail_key)
 
                     # Add assistant response to chat history, keeping the product
                     # results so cards + images re-render on later reruns.
@@ -668,6 +679,7 @@ def main():
                 try:
                     st.session_state.product_search_results = hybrid_search(search_query)
                     st.session_state.selected_product = None
+                    st.session_state.selected_product_key = None
                 except Exception as e:
                     st.session_state.product_search_results = []
                     st.error(f"Search error: {e}")
@@ -676,21 +688,23 @@ def main():
                 try:
                     st.session_state.product_search_results = search_products_smart(search_query)
                     st.session_state.selected_product = None
+                    st.session_state.selected_product_key = None
                 except Exception as e:
                     st.session_state.product_search_results = []
                     st.error(f"Smart search error: {e}")
-
-        # Detail panel (persists across reruns until closed)
-        render_selected_product()
 
         # Render stored results independently of the button press
         results = st.session_state.get("product_search_results", [])
         if results:
             st.success(f"Found {len(results)} products")
             for idx, product in enumerate(results, 1):
+                detail_key = f"search_details_{idx}"
                 display_product_card(product, idx)
-                if st.button("🔍 View Details", key=f"search_details_{idx}"):
-                    show_product_dialog(product)
+                if st.button("🔍 View Details", key=detail_key):
+                    show_product_dialog(product, detail_key)
+                    st.rerun()
+                # Render detail panel inline below THIS card
+                render_selected_product_inline(detail_key)
         elif search_btn or smart_search_btn:
             st.info("No products found matching your query.")
 
