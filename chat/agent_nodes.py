@@ -763,7 +763,7 @@ def generate_answer(state: Dict[str, Any], llm=None, ollama_available: bool = Fa
         # do NOT recommend products — give a flexible answer instead. (Search,
         # especially semantic, returns the k nearest mixes even for unrelated
         # questions, which is what caused off-topic product recommendations.)
-        explicit_product_query = (search_method == 'sql')
+        explicit_product_query = search_method in ('sql', 'llm_sql')
         if not explicit_product_query:
             on_topic = (_is_baking_related(question, llm, ollama_available)
                         or _shares_keyword(question, products))
@@ -788,6 +788,8 @@ def generate_answer(state: Dict[str, Any], llm=None, ollama_available: bool = Fa
                 parts.append(f"sorted by: {filters['order'].replace('ORDER BY ','')}")
             if parts:
                 filter_note = f"\n*({'; '.join(parts)})*\n\n"
+        elif search_method == 'llm_sql' and state.get('generated_sql'):
+            filter_note = f"\n*(SQL: `{state['generated_sql']}`)*\n\n"
 
         answer = f"**Found {len(products)} product(s):**{filter_note}\n\n"
 

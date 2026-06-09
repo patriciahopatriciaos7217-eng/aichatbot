@@ -786,20 +786,30 @@ def render_langgraph_view():
     st.caption("Visualization of the agent's reasoning graph (nodes = steps, edges = transitions).")
 
     # Try to pull the compiled graph from the agent module; fall back to a
-    # static representation that mirrors the known pipeline.
-    nodes = ["START", "classify_intent", "retrieve_products", "generate_answer", "format_response", "END"]
+    # static representation that mirrors the current LLM-routed pipeline.
+    nodes = ["START", "classify_intent", "analyze_query", "llm_sql_search",
+             "keyword_search", "vector_search", "hybrid_search",
+             "generate_answer", "END"]
     edges = [
         ("START", "classify_intent"),
-        ("classify_intent", "retrieve_products"),
+        ("classify_intent", "analyze_query"),
         ("classify_intent", "generate_answer"),
-        ("retrieve_products", "generate_answer"),
-        ("generate_answer", "format_response"),
-        ("format_response", "END"),
+        ("analyze_query", "llm_sql_search"),
+        ("analyze_query", "keyword_search"),
+        ("analyze_query", "vector_search"),
+        ("analyze_query", "hybrid_search"),
+        ("llm_sql_search", "generate_answer"),
+        ("keyword_search", "generate_answer"),
+        ("vector_search", "generate_answer"),
+        ("hybrid_search", "generate_answer"),
+        ("generate_answer", "END"),
     ]
 
     try:
         from chat import agent as _agent
-        g = getattr(_agent, "graph", None) or getattr(_agent, "compiled_graph", None)
+        g = (getattr(_agent, "agent_graph", None)
+             or getattr(_agent, "graph", None)
+             or getattr(_agent, "compiled_graph", None))
         if g is not None and hasattr(g, "get_graph"):
             gv = g.get_graph()
             nodes = list(gv.nodes.keys())

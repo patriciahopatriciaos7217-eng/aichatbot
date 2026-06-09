@@ -1,11 +1,22 @@
 """
-LangGraph Builder - Hybrid Search + LLM Fallback
-Fixes:
-  1. route_search node must be added BEFORE conditional edges reference it
-  2. Added "sql_search" route for price/rating/filter queries
-  3. All conditional edge return values have guaranteed fallback keys
-  4. TypedDict state instead of plain dict — prevents silent key errors
+LangGraph Builder - LLM-routed search
+
+Flow:
+  classify_intent
+    → (direct_response) → generate_answer
+    → (needs_search)    → analyze_query (LLM picks the strategy)
+                            → llm_sql_search   (LLM writes the SQL from schema)
+                            → keyword_search
+                            → vector_search
+                            → hybrid_search
+                          → generate_answer → END
+
+The search strategy is chosen by the LLM (analyze_query). When it picks SQL,
+llm_sql_search asks the LLM to write a read-only SELECT from the table schema,
+validates it (SELECT-only) and runs it on a read-only connection. Every LLM
+step falls back to the previous keyword/heuristic behaviour when Ollama is down.
 """
+import os
 import logging
 import re
 from langgraph.graph import StateGraph, END
@@ -196,9 +207,8 @@ def sql_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
                 for p in products:
                     p['image_list'] = []    
     except sqlite3.OperationalError as e:
-        logger.error(f"sql_search DB error: {e}")
-        return {**state, "search_results": [], "search_method": "sql_error",
-                "error_message": str(e)}
+        logger.error(f"sql_search DB error: {e} → hybrid fallback")
+        return hybrid_search_products(state)
 
     if not products:
         # No DB results → try vector search as fallback
@@ -285,12 +295,214 @@ def route_search_strategy(state: Dict[str, Any]) -> str:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
+# LLM-driven query analysis + LLM-generated SQL
+# ──────────────────────────────────────────────────────────────────────────────
+
+_DB_PATH = os.environ.get("DATABASE_URL", "./king_arthur.db")
+
+# Columns the generated SELECT must always return (so generate_answer/UI work).
+_PRODUCT_COLUMNS = (
+    "id, product_code, name, price, description, details, ingredients, "
+    "contains, rating, nutrition_link, review, url, created_at, updated_at"
+)
+
+# Anything that could mutate the DB or chain a second statement → reject.
+_FORBIDDEN_SQL = re.compile(
+    r"\b(insert|update|delete|drop|alter|create|replace|attach|detach|"
+    r"pragma|vacuum|reindex|truncate|grant|revoke)\b",
+    re.IGNORECASE,
+)
+
+
+def analyze_query(state: Dict[str, Any]) -> Dict[str, Any]:
+    """LLM router: choose the search strategy for this question.
+
+    Sets state['search_route'] ∈ {sql, keyword, vector, hybrid}. Falls back to
+    the keyword heuristic (route_search_strategy) when Ollama is unavailable or
+    the reply can't be parsed.
+    """
+    question = state.get("question", "")
+    steps = state.get("reasoning_steps", []).copy()
+
+    route = None
+    if _ollama_available and _llm:
+        prompt = (
+            "You route questions for a baking-PRODUCTS database assistant.\n"
+            "Choose the ONE best search strategy:\n"
+            "- sql: structured filters or sorting — price (under $10, cheapest), "
+            "rating (4 stars and up), in stock, dietary (gluten-free, vegan, "
+            "organic, kosher, dairy-free, non-gmo), counts/limits (top 5), order.\n"
+            "- keyword: short exact lookup of a product name or a field "
+            "(ingredients, details, nutrition).\n"
+            "- vector: recommendation / similarity / vague descriptive intent "
+            '("something chocolatey", "similar to X", "good for kids").\n'
+            "- hybrid: general product search that doesn't clearly fit the above.\n\n"
+            f'Question: "{question}"\n'
+            "Reply with ONLY one word: sql, keyword, vector, or hybrid."
+        )
+        try:
+            reply = str(_llm.invoke(prompt)).strip().lower()
+            for r in ("sql", "keyword", "vector", "hybrid"):
+                if r in reply:
+                    route = r
+                    break
+        except Exception as e:
+            logger.error(f"analyze_query LLM error: {e}")
+
+    if route is None:
+        route = route_search_strategy(state)   # heuristic node-key fallback
+        steps.append(f"🧭 Route (heuristic): {route}")
+    else:
+        steps.append(f"🧭 Route (LLM): {route}")
+
+    logger.info(f"analyze_query → {route}")
+    return {**state, "search_route": route, "reasoning_steps": steps}
+
+
+def route_from_analysis(state: Dict[str, Any]) -> str:
+    """Map the chosen route (LLM word OR heuristic node-key) to a graph node."""
+    route = (state.get("search_route") or "hybrid").lower()
+    mapping = {
+        "sql": "llm_sql_search",          "sql_search": "llm_sql_search",
+        "keyword": "keyword_search",      "keyword_search": "keyword_search",
+        "vector": "vector_search",        "vector_search": "vector_search",
+        "hybrid": "hybrid_search",        "hybrid_search": "hybrid_search",
+    }
+    return mapping.get(route, "hybrid_search")
+
+
+def _strip_sql(text: str) -> str:
+    """Extract a bare SQL statement from the LLM reply (drop fences/prose)."""
+    t = (text or "").strip()
+    if "```" in t:
+        m = re.search(r"```(?:sql)?\s*(.+?)```", t, re.DOTALL | re.IGNORECASE)
+        if m:
+            t = m.group(1).strip()
+    idx = t.lower().find("select")
+    if idx > 0:
+        t = t[idx:]
+    return t.strip().rstrip(";").strip()
+
+
+def _is_safe_select(sql: str) -> bool:
+    """Allow ONLY a single read-only SELECT. Belt to the read-only-connection braces."""
+    if not sql:
+        return False
+    low = sql.lower().strip()
+    if not low.startswith("select"):
+        return False
+    if ";" in sql or "--" in sql or "/*" in sql:   # no statement chaining / comments
+        return False
+    if _FORBIDDEN_SQL.search(sql):
+        return False
+    return True
+
+
+def _generate_sql(question: str) -> Optional[str]:
+    """Ask the LLM to write a read-only SELECT from the products schema."""
+    if not (_ollama_available and _llm):
+        return None
+    prompt = (
+        "You are a SQLite expert. Write ONE read-only SQL query that answers the "
+        "user's question about baking products.\n\n"
+        "Table `products` columns:\n"
+        "  id INTEGER, product_code TEXT, name TEXT,\n"
+        "  price TEXT  -- e.g. '$8.95', a string with a leading $,\n"
+        "  description TEXT, details TEXT, ingredients TEXT, contains TEXT,\n"
+        "  rating INTEGER  -- 0..5,\n"
+        "  nutrition_link TEXT, review TEXT, url TEXT, created_at, updated_at\n\n"
+        "Rules:\n"
+        "- Output ONLY the SELECT statement. No prose, no markdown, no semicolon.\n"
+        "- Query ONLY the products table; it must be read-only.\n"
+        f"- Always select exactly these columns: {_PRODUCT_COLUMNS}.\n"
+        "- price is TEXT with a '$'; for numeric price filters/sorting use "
+        "CAST(REPLACE(price, '$', '') AS REAL).\n"
+        "- Dietary flags (gluten-free, vegan, organic, kosher, dairy-free, "
+        "non-gmo) are NOT columns — match them with LIKE on name, description, "
+        "details and ingredients.\n"
+        "- Add a LIMIT (<= 50) when the question doesn't specify a count.\n\n"
+        f'Question: "{question}"\n'
+        "SQL:"
+    )
+    try:
+        return _strip_sql(str(_llm.invoke(prompt)))
+    except Exception as e:
+        logger.error(f"_generate_sql LLM error: {e}")
+        return None
+
+
+def _run_select(sql: str) -> List[Dict[str, Any]]:
+    """Execute a validated SELECT on a READ-ONLY connection and attach images."""
+    import sqlite3
+    uri = f"file:{_DB_PATH}?mode=ro"
+    with sqlite3.connect(uri, uri=True) as conn:
+        conn.row_factory = sqlite3.Row
+        products = [dict(r) for r in conn.execute(sql).fetchall()]
+
+        ids = [p["id"] for p in products if p.get("id") is not None]
+        image_map: Dict[Any, list] = {}
+        if ids:
+            placeholders = ", ".join("?" * len(ids))
+            rows = conn.execute(
+                f"SELECT product_id, image_url FROM product_images "
+                f"WHERE product_id IN ({placeholders}) "
+                f"ORDER BY product_id, image_order",
+                ids,
+            ).fetchall()
+            for row in rows:
+                image_map.setdefault(row["product_id"], []).append(row["image_url"])
+        for p in products:
+            p["image_list"] = image_map.get(p.get("id"), [])
+    return products
+
+
+def llm_sql_search_products(state: Dict[str, Any]) -> Dict[str, Any]:
+    """SQL search whose query is written by the LLM from the table schema.
+
+    generate → validate (SELECT-only) → execute (read-only connection) → attach
+    images. Falls back to the heuristic sql_search (then hybrid/vector) if
+    generation/validation/execution fails or returns nothing.
+    """
+    question = state.get("question", "")
+    steps = state.get("reasoning_steps", []).copy()
+
+    sql = _generate_sql(question)
+    if not _is_safe_select(sql or ""):
+        steps.append("⚠️ LLM SQL unavailable/unsafe → heuristic SQL search")
+        logger.warning(f"Unsafe/empty LLM SQL, falling back. Got: {sql!r}")
+        return sql_search_products({**state, "reasoning_steps": steps})
+
+    logger.info(f"llm_sql_search SQL: {sql}")
+    try:
+        products = _run_select(sql)
+    except Exception as e:
+        steps.append(f"⚠️ LLM SQL failed ({e}) → heuristic SQL search")
+        logger.error(f"llm_sql_search execution error: {e}")
+        return sql_search_products({**state, "reasoning_steps": steps})
+
+    if not products:
+        steps.append("ℹ️ LLM SQL returned 0 rows → vector search")
+        return vector_search_products({**state, "reasoning_steps": steps})
+
+    steps.append(f"✅ LLM SQL search found {len(products)} products")
+    return {
+        **state,
+        "search_results": products,
+        "product_count": len(products),
+        "suggested_products": [p.get("name") for p in products[:3] if p.get("name")],
+        "search_method": "llm_sql",
+        "generated_sql": sql,
+        "reasoning_steps": steps,
+    }
+
+
+# ──────────────────────────────────────────────────────────────────────────────
 # Graph builder
 # ──────────────────────────────────────────────────────────────────────────────
 
 def build_agent_graph():
     """
-    Build the hybrid search agent.
+    Build the LLM-routed search agent.
 
     Node registration order matters in LangGraph:
     ALL nodes must be added before any conditional_edges reference them.
@@ -298,35 +510,33 @@ def build_agent_graph():
     workflow = StateGraph(dict)
 
     # ── Register ALL nodes first ───────────────────────────────────────────
-    workflow.add_node("classify_intent",   classify_intent)
-    # passthrough router
-    workflow.add_node("route_search", lambda x: x)
-    # NEW: SQLite node
-    workflow.add_node("sql_search",        sql_search_products)
-    workflow.add_node("keyword_search",    keyword_search_products)
-    workflow.add_node("vector_search",     vector_search_products)
-    workflow.add_node("hybrid_search",     hybrid_search_products)
-    workflow.add_node("generate_answer",   generate_answer_with_llm)
+    workflow.add_node("classify_intent", classify_intent)
+    workflow.add_node("analyze_query",   analyze_query)            # LLM router
+    workflow.add_node("llm_sql_search",  llm_sql_search_products)  # LLM-written SQL
+    workflow.add_node("keyword_search",  keyword_search_products)
+    workflow.add_node("vector_search",   vector_search_products)
+    workflow.add_node("hybrid_search",   hybrid_search_products)
+    workflow.add_node("generate_answer", generate_answer_with_llm)
 
     # ── Entry point ────────────────────────────────────────────────────────
     workflow.set_entry_point("classify_intent")
 
-    # ── classify_intent → search router OR direct answer ──────────────────
+    # ── classify_intent → LLM query analysis OR direct answer ─────────────
     workflow.add_conditional_edges(
         "classify_intent",
         route_after_intent,
         {
-            "needs_search":    "route_search",
+            "needs_search":    "analyze_query",
             "direct_response": "generate_answer",
         }
     )
 
-    # ── route_search → appropriate search node ────────────────────────────
+    # ── analyze_query (LLM) → the chosen search node ──────────────────────
     workflow.add_conditional_edges(
-        "route_search",
-        route_search_strategy,
+        "analyze_query",
+        route_from_analysis,
         {
-            "sql_search":     "sql_search",
+            "llm_sql_search": "llm_sql_search",
             "keyword_search": "keyword_search",
             "vector_search":  "vector_search",
             "hybrid_search":  "hybrid_search",
@@ -334,14 +544,14 @@ def build_agent_graph():
     )
 
     # ── All search nodes → generate_answer → END ──────────────────────────
-    workflow.add_edge("sql_search",     "generate_answer")
+    workflow.add_edge("llm_sql_search", "generate_answer")
     workflow.add_edge("keyword_search", "generate_answer")
     workflow.add_edge("vector_search",  "generate_answer")
     workflow.add_edge("hybrid_search",  "generate_answer")
     workflow.add_edge("generate_answer", END)
 
     graph = workflow.compile()
-    logger.info("✅ Agent graph compiled")
+    logger.info("✅ Agent graph compiled (LLM-routed)")
     return graph
 
 
